@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { OrderProvider } from '../contexts/order';
 
 import Home from '../pages/Home';
+import { THEME } from '../constants';
 
 const AppStack = createStackNavigator();
 

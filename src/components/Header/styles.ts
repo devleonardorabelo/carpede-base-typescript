@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { THEME } from '../../constants';
 
 export default StyleSheet.create({
   header: {
@@ -10,5 +11,6 @@ export default StyleSheet.create({
   navigationTitle: {
     fontSize: 18,
     fontFamily: 'Montserrat SemiBold',
+    color: THEME.color1,
   },
 });

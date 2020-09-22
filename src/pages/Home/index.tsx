@@ -1,14 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Header } from '../../components/Header';
+import { SafeAreaView, Text, View } from 'react-native';
+import { Header, SearchInput } from '../../components';
 
-// import { Container } from './styles';
+import styles from '../styles';
 
 const Home: React.FC = () => {
   return (
-    <View>
+    <SafeAreaView style={styles.section}>
       <Header iconLeft="logout" iconRight="face-profile" title="INICIO" />
-    </View>
+      <View style={styles.container}>
+        <Text style={styles.title}>Olá, Leonardo</Text>
+        <Text style={styles.subtitle}>Tá com Fome de quê?</Text>
+        <SearchInput action={() => {}} onChangeText={() => {}} placeholder="Ex: Hamburger" />
+      </View>
+    </SafeAreaView>
   );
 };
 
