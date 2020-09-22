@@ -1,12 +1,13 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Header } from '../../components/Header';
 
 // import { Container } from './styles';
 
 const Home: React.FC = () => {
   return (
     <View>
-      <Text>Oi</Text>
+      <Header iconLeft="logout" iconRight="face-profile" title="INICIO" />
     </View>
   );
 };
