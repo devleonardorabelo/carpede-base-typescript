@@ -8,6 +8,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   navigationTitle: {
-    fontSize: 16,
+    fontSize: 18,
+    fontFamily: 'Montserrat SemiBold',
   },
 });
