@@ -1,1 +1,1 @@
-export * from './Horizontal';
+export { default as HorizontalList } from './Horizontal';

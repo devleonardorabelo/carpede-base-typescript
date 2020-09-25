@@ -2,18 +2,30 @@ import { StyleSheet } from 'react-native';
 import { THEME } from '../../../constants';
 
 export default StyleSheet.create({
-  largeItem: {
+  itemTitleContainer: {
+    paddingHorizontal: 16,
     marginBottom: 16,
+  },
+  itemsTitle: THEME.subtitle,
+  itemName: THEME.boldText,
+  normalItem: {
+    width: 150,
+    marginBottom: 24,
+  },
+  normalItemImage: {
+    width: 150,
+    height: 100,
+    borderRadius: 8,
+    marginBottom: 8,
+  },
+  largeItem: {
+    marginBottom: 24,
+    width: 200,
   },
   largeItemImage: {
     width: 200,
     height: 100,
     borderRadius: 8,
     marginBottom: 8,
-  },
-  largeItemName: {
-    fontSize: 18,
-    fontFamily: 'Montserrat SemiBold',
-    color: THEME.color1,
   },
 });

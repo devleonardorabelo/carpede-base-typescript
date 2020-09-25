@@ -14,7 +14,7 @@ interface Props {
   title?: string;
 }
 
-export const Header: React.FC<Props> = ({
+const Header: React.FC<Props> = ({
   actionLeft,
   actionRight,
   iconLeft,
@@ -39,3 +39,5 @@ export const Header: React.FC<Props> = ({
     )}
   </View>
 );
+
+export default Header;

@@ -9,6 +9,28 @@ export const THEME = {
   color2: '#2E2E2E',
   color3: '#7A7A7A',
   color4: '#E0E0E0',
-  mode: 'light',
-  mapStyle: [],
+  title: {
+    fontFamily: 'Montserrat Bold',
+    fontSize: 28,
+    color: '#141414',
+    flexShrink: 1,
+  },
+  subtitle: {
+    fontFamily: 'Montserrat SemiBold',
+    fontSize: 20,
+    color: '#2E2E2E',
+    flexShrink: 1,
+  },
+  boldText: {
+    fontFamily: 'Montserrat SemiBold',
+    fontSize: 16,
+    color: '#2E2E2E',
+    flexShrink: 1,
+  },
+  text: {
+    fontFamily: 'Montserrat Medium',
+    fontSize: 16,
+    color: '#2E2E2E',
+    flexShrink: 1,
+  },
 };

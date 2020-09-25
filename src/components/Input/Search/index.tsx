@@ -11,7 +11,7 @@ interface Props {
   action: () => void;
 }
 
-export const SearchInput: React.FC<Props> = ({ placeholder, onChangeText, action }) => (
+const Search: React.FC<Props> = ({ placeholder, onChangeText, action }) => (
   <View style={styles.searchBox}>
     <TextInput
       style={styles.searchInput}
@@ -24,3 +24,5 @@ export const SearchInput: React.FC<Props> = ({ placeholder, onChangeText, action
     </TouchableOpacity>
   </View>
 );
+
+export default Search;

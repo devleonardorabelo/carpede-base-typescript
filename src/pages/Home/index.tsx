@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 import { Header, SearchInput, HorizontalList } from '../../components';
 
-import styles from '../styles';
+import styles from './styles';
 
 const Home: React.FC = () => {
   const data = [
@@ -36,8 +36,8 @@ const Home: React.FC = () => {
         <Text style={styles.subtitle}>Tá com Fome de quê?</Text>
         <SearchInput action={() => {}} onChangeText={() => {}} placeholder="Ex: Hamburger" />
       </View>
-      <HorizontalList data={data} />
-      <HorizontalList data={data} large />
+      <HorizontalList data={data} title="Categorias" />
+      <HorizontalList data={data} title="Produtos" product />
     </SafeAreaView>
   );
 };

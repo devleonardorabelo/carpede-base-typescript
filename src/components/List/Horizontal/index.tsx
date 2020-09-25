@@ -9,38 +9,50 @@ interface ItemProps {
   image: string;
   name: string;
   price?: number;
-  large?: boolean;
+  product?: boolean;
 }
 
 interface SlideProps {
   data: ItemProps[];
-  large?: boolean;
+  product?: boolean;
+  title: string;
 }
 
-const Item: React.FC<ItemProps> = ({ image, name, price, large }: ItemProps) => (
-  <View style={styles.largeItem}>
+const Item: React.FC<ItemProps> = ({ image, name, price, product }: ItemProps) => (
+  <View style={product ? styles.largeItem : styles.normalItem}>
     <Image
-      style={styles.largeItemImage}
+      style={product ? styles.largeItemImage : styles.normalItemImage}
       source={{ uri: image, cache: 'only-if-cached' }}
       resizeMode="cover"
     />
-    <Text style={styles.largeItemName}>{name}</Text>
-    {large && <Text style={styles.largeItemName}>{price}</Text>}
+    <View style={{ flexDirection: 'row' }}>
+      <Text style={styles.itemName}>{name}</Text>
+    </View>
+    {product && <Text style={styles.itemName}>{price}</Text>}
   </View>
 );
 
-export const HorizontalList: React.FC<SlideProps> = ({ data, large }: SlideProps) => (
+const Horizontal: React.FC<SlideProps> = ({ data, product, title }: SlideProps) => (
   <View>
+    <Text style={[styles.itemsTitle, styles.itemTitleContainer]}>{title}</Text>
     <FlatList
       data={data}
       keyExtractor={(item) => String(item._id)}
       showsHorizontalScrollIndicator={false}
       horizontal={true}
       renderItem={({ item }) => (
-        <Item _id={item._id} image={item.image} name={item.name} price={item.price} large={large} />
+        <Item
+          _id={item._id}
+          image={item.image}
+          name={item.name}
+          price={item.price}
+          product={product}
+        />
       )}
       ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
       contentContainerStyle={{ paddingHorizontal: 16 }}
     />
   </View>
 );
+
+export default Horizontal;
