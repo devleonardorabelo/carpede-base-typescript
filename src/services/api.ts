@@ -1,9 +1,15 @@
-import axios from 'axios';
-import { API_DOMAIN } from '../constants';
+import AxiosHttpClient from './http-client';
+import { HttpResponse } from '../types';
+import { API_DOMAIN, STORE_ID } from '../constants';
 
-export const api = axios.create({
-  baseURL: API_DOMAIN,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+const RequestBase = async (route: string): Promise<HttpResponse> => {
+  return new AxiosHttpClient({
+    url: `${API_DOMAIN}/${route}`,
+    method: 'get',
+    params: {
+      store_id: STORE_ID,
+    },
+  }).request();
+};
+
+export default RequestBase;
