@@ -1,13 +1,18 @@
 import AxiosHttpClient from './http-client';
-import { HttpResponse } from '../types';
+import { HttpMethod, HttpResponse } from '../types';
 import { API_DOMAIN, STORE_ID } from '../constants';
 
-const RequestBase = async (route: string): Promise<HttpResponse> => {
+const RequestBase = async (
+  route: string,
+  method?: HttpMethod,
+  params?: { page?: number; filter?: string; category?: string },
+): Promise<HttpResponse> => {
   return new AxiosHttpClient({
     url: `${API_DOMAIN}/${route}`,
-    method: 'get',
+    method: method || 'get',
     params: {
       store_id: STORE_ID,
+      ...params,
     },
   }).request();
 };

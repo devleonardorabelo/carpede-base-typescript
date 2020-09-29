@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export type HttpMethod = 'post' | 'get' | 'put' | 'delete';
 
@@ -55,7 +54,15 @@ export interface Category {
   store_id: string;
 }
 
+export type ProductSearch = {
+  category?: string;
+  page?: number;
+};
+
 export interface Shop {
   products: Product[];
   categories: Category[];
+  onSale: Product[];
+  bestSellers: Product[];
+  loadProducts?: ({ category, page }: ProductSearch) => Promise<void>;
 }
