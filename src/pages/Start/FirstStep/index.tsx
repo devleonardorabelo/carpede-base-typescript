@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Text, SafeAreaView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Text, SafeAreaView, View } from 'react-native';
 import { CircularButton, TextInput } from '../../../components';
 
 import styles from '../styles';
@@ -12,6 +12,7 @@ type FormattedInput = {
 const FirstStep: React.FC = () => {
   const [name, setName] = useState<string>('');
   const [whatsapp, setWhatsapp] = useState<FormattedInput>({ formatted: '', raw: '' });
+  const [done, setDone] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,7 +26,9 @@ const FirstStep: React.FC = () => {
         onSubmitEditing={() => {}}
       />
       <TextInput label="Qual o seu whatsapp?" onChangeText={() => {}} onSubmitEditing={() => {}} />
-      <CircularButton icon="plus" action={() => {}} disabled />
+      <View style={{ alignItems: 'center' }}>
+        <CircularButton icon="chevron-right" action={() => {}} disabled={!done} />
+      </View>
     </SafeAreaView>
   );
 };
