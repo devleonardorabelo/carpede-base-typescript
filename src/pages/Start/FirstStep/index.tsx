@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Text, SafeAreaView, View } from 'react-native';
-import { CircularButton, TextInput } from '../../../components';
+
+import { CircularButton, TextInput, TextInputMask } from '../../../components';
 
 import styles from '../styles';
 
 type FormattedInput = {
-  raw: string;
-  formatted: string;
+  raw: string | undefined;
+  formatted: string | undefined;
 };
 
 const FirstStep: React.FC = () => {
   const [name, setName] = useState<string>('');
-  const [whatsapp, setWhatsapp] = useState<FormattedInput>({ formatted: '', raw: '' });
+  const [whatsapp, setWhatsapp] = useState<FormattedInput>({
+    formatted: '',
+    raw: '',
+  });
   const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    if (name.length >= 4 && whatsapp.formatted?.length === 16) setDone(true);
+    else setDone(false);
+  }, [name, whatsapp]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,7 +34,14 @@ const FirstStep: React.FC = () => {
         onChangeText={(e) => setName(e)}
         onSubmitEditing={() => {}}
       />
-      <TextInput label="Qual o seu whatsapp?" onChangeText={() => {}} onSubmitEditing={() => {}} />
+      <TextInputMask
+        label="Qual o seu whatsapp?"
+        onChangeText={(formatted, raw) => {
+          setWhatsapp({ formatted, raw });
+        }}
+        onSubmitEditing={() => {}}
+        mask={'([00]) [0] [0000] [0000]'}
+      />
       <View style={{ alignItems: 'center' }}>
         <CircularButton icon="chevron-right" action={() => {}} disabled={!done} />
       </View>
