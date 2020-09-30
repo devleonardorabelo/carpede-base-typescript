@@ -29,7 +29,25 @@ export type HttpClient<R = any> = {
   request: (data: HttpRequest) => Promise<HttpResponse<R>>;
 };
 
-export interface Product {
+export type Customer = {
+  name: string;
+  whatsapp: string;
+  address: string;
+  complement: string;
+  number: number;
+  latitude: number;
+  longitude: number;
+};
+
+export type ContextProvider = {
+  signed: boolean;
+  customer?: Customer | null;
+  signIn?: () => Promise<void>;
+  signUp?: (customer: Customer) => Promise<void>;
+  signOut?: () => Promise<void>;
+};
+
+export type Product = {
   _id: string;
   image: string;
   name: string;
@@ -45,24 +63,24 @@ export interface Product {
   sold: number;
   onSale: boolean;
   onSaleValue: number;
-}
+};
 
-export interface Category {
+export type Category = {
   _id: string;
   image: string;
   name: string;
   store_id: string;
-}
+};
 
 export type ProductSearch = {
   category?: string;
   page?: number;
 };
 
-export interface Shop {
+export type Shop = {
   products: Product[];
   categories: Category[];
   onSale: Product[];
   bestSellers: Product[];
   loadProducts?: ({ category, page }: ProductSearch) => Promise<void>;
-}
+};

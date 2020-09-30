@@ -1,24 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import loadCostumer from '../services/auth';
-
-interface Customer {
-  name: string;
-  whatsapp: string;
-  address: string;
-  complement: string;
-  number: number;
-  latitude: number;
-  longitude: number;
-}
-
-interface ContextProvider {
-  signed: boolean;
-  customer?: Customer | null;
-  signIn?: () => Promise<void>;
-  signUp?: (customer: Customer) => Promise<void>;
-  signOut?: () => Promise<void>;
-}
+import { ContextProvider, Customer } from '../types';
 
 const AuthContext = createContext<ContextProvider>({ signed: false, customer: null });
 
@@ -62,6 +45,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     void signIn();
+    console.log(customer);
   }, []);
 
   return (

@@ -10,8 +10,8 @@ const Home: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.section}>
-      <Header iconLeft="logout" iconRight="face-profile" title="INICIO" />
       <ScrollView>
+        <Header iconLeft="logout" iconRight="face-profile" title="INICIO" />
         <View style={styles.container}>
           <Text style={styles.title}>Olá, Leonardo</Text>
           <Text style={styles.subtitle}>Tá com Fome de quê?</Text>

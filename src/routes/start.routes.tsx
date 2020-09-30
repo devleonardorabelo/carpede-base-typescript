@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import FirstStep from '../pages/Home';
+import FirstStep from '../pages/Start/FirstStep';
 
 const StartStack = createStackNavigator();
 
