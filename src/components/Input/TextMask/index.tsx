@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import TextMask from 'react-native-text-input-mask';
+import { TextInputMask as TextMask } from 'react-native-masked-text';
 
 import styles from './styles';
 
@@ -8,7 +8,7 @@ interface Props {
   label: string;
   placeholder?: string;
   onChangeText: (formatted: string | undefined, raw: string | undefined) => void;
-  onSubmitEditing: () => void;
+  onSubmitEditing?: () => void;
   mask: string;
 }
 
@@ -26,7 +26,12 @@ const TextInputMask: React.FC<Props> = ({
       placeholder={placeholder}
       onChangeText={onChangeText}
       onSubmitEditing={onSubmitEditing}
-      mask={mask}
+      type="cel-phone"
+      options={{
+        maskType: 'BRL',
+        withDDD: true,
+        dddMask: '(99) ',
+      }}
     />
   </View>
 );

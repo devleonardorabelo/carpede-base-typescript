@@ -29,17 +29,12 @@ const FirstStep: React.FC = () => {
       <Text style={[styles.subtitle, { marginBottom: 32 }]}>
         Primeiro precisamos saber mais sobre você
       </Text>
-      <TextInput
-        label="Qual o seu nome?"
-        onChangeText={(e) => setName(e)}
-        onSubmitEditing={() => {}}
-      />
+      <TextInput label="Qual o seu nome?" onChangeText={(e) => setName(e)} />
       <TextInputMask
         label="Qual o seu whatsapp?"
         onChangeText={(formatted, raw) => {
           setWhatsapp({ formatted, raw });
         }}
-        onSubmitEditing={() => {}}
         mask={'([00]) [0] [0000] [0000]'}
       />
       <View style={{ alignItems: 'center' }}>

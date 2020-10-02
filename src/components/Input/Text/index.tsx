@@ -7,7 +7,7 @@ interface Props {
   label: string;
   placeholder?: string;
   onChangeText: (e: any) => void;
-  onSubmitEditing: () => void;
+  onSubmitEditing?: () => void;
 }
 
 const TextInput: React.FC<Props> = ({ label, placeholder, onChangeText, onSubmitEditing }) => (
