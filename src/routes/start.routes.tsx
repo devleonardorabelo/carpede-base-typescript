@@ -2,13 +2,17 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import FirstStep from '../pages/Start/FirstStep';
+import SecondStep from '../pages/Start/SecondStep';
 
 const StartStack = createStackNavigator();
 
 const StartRoutes: React.FC = () => (
   <StartStack.Navigator
     screenOptions={{
-      headerShown: false,
+      headerStyle: {
+        elevation: 0,
+      },
+      headerTitleAlign: 'center',
       cardStyleInterpolator: ({ current, layouts }) => {
         return {
           cardStyle: {
@@ -24,7 +28,12 @@ const StartRoutes: React.FC = () => (
         };
       },
     }}>
-    <StartStack.Screen name="FirstStep" component={FirstStep} />
+    <StartStack.Screen options={{ headerShown: false }} name="FirstStep" component={FirstStep} />
+    <StartStack.Screen
+      options={{ headerTransparent: true }}
+      name="SecondStep"
+      component={SecondStep}
+    />
   </StartStack.Navigator>
 );
 
