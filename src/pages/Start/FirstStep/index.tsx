@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, SafeAreaView, View } from 'react-native';
+import { Text, SafeAreaView, View, PermissionsAndroid } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { CircularButton, TextInput, TextInputMask } from '../../../components';
@@ -19,6 +19,14 @@ const FirstStep: React.FC = () => {
     if (name.length >= 4 && whatsapp.length >= 14) setDone(true);
     else setDone(false);
   }, [name, whatsapp]);
+
+  const navigateToSecondStep = async () => {
+    const getPermission = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    );
+    if (getPermission === 'denied') return;
+    navigate('SecondStep', { name, CPF, whatsapp });
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -43,11 +51,7 @@ const FirstStep: React.FC = () => {
           placeholder={'(00) 00000-0000'}
         />
         <View style={{ alignItems: 'center' }}>
-          <CircularButton
-            icon="chevron-right"
-            action={() => navigate('SecondStep')}
-            disabled={!done}
-          />
+          <CircularButton icon="chevron-right" action={navigateToSecondStep} disabled={!done} />
         </View>
       </ScrollView>
     </SafeAreaView>
