@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Text, SafeAreaView, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { CircularButton, TextInput, TextInputMask } from '../../../components';
 
 import styles from '../styles';
 
-type FormattedInput = {
-  raw: string | undefined;
-  formatted: string | undefined;
-};
-
 const FirstStep: React.FC = () => {
   const [name, setName] = useState<string>('');
-  const [whatsapp, setWhatsapp] = useState<FormattedInput>({
-    formatted: '',
-    raw: '',
-  });
+  const [CPF, setCPF] = useState<string>('');
+  const [whatsapp, setWhatsapp] = useState<string>('');
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    if (name.length >= 4 && whatsapp.formatted?.length === 16) setDone(true);
+    if (name.length >= 4 && whatsapp.length >= 14) setDone(true);
     else setDone(false);
   }, [name, whatsapp]);
 
@@ -31,11 +25,18 @@ const FirstStep: React.FC = () => {
       </Text>
       <TextInput label="Qual o seu nome?" onChangeText={(e) => setName(e)} />
       <TextInputMask
+        label="Qual o seu CPF?"
+        value={CPF}
+        onChangeText={(formatted) => setCPF(String(formatted))}
+        type={'cpf'}
+        placeholder={'(00) 00000-0000'}
+      />
+      <TextInputMask
         label="Qual o seu whatsapp?"
-        onChangeText={(formatted, raw) => {
-          setWhatsapp({ formatted, raw });
-        }}
-        mask={'([00]) [0] [0000] [0000]'}
+        value={whatsapp}
+        onChangeText={(formatted) => setWhatsapp(String(formatted))}
+        type={'cel-phone'}
+        placeholder={'(00) 00000-0000'}
       />
       <View style={{ alignItems: 'center' }}>
         <CircularButton icon="chevron-right" action={() => {}} disabled={!done} />
