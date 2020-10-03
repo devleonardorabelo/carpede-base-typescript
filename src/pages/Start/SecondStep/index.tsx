@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 
 const SecondStep: React.FC = () => {
   return (
     <View>
-      <Text>Oi</Text>
+      <MapView style={{ flex: 1 }} />
     </View>
   );
 };
