@@ -30,7 +30,7 @@ const FirstStep: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView style={{ paddingTop: 16 }}>
         <Text style={styles.title}>Seja bem-vindo(a)</Text>
         <Text style={[styles.subtitle, { marginBottom: 32 }]}>
           Primeiro precisamos saber mais sobre você

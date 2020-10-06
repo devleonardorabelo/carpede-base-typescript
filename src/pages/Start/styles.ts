@@ -9,4 +9,14 @@ export default StyleSheet.create({
   },
   title: THEME.title,
   subtitle: THEME.subtitle,
+  text: THEME.text,
+  bottomTab: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(255,255,255,0.8)',
+    padding: 16,
+    alignItems: 'center',
+  },
 });
