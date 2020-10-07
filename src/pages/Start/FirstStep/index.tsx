@@ -30,12 +30,16 @@ const FirstStep: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{ paddingTop: 16 }}>
+      <ScrollView style={styles.section}>
         <Text style={styles.title}>Seja bem-vindo(a)</Text>
         <Text style={[styles.subtitle, { marginBottom: 32 }]}>
           Primeiro precisamos saber mais sobre você
         </Text>
-        <TextInput label="Qual o seu nome?" onChangeText={(e) => setName(e)} />
+        <TextInput
+          label="Qual o seu nome?"
+          onChangeText={(e) => setName(e)}
+          placeholder="Digite aqui"
+        />
         <TextInputMask
           label="Qual o seu CPF?"
           value={CPF}

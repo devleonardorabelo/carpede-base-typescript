@@ -31,7 +31,7 @@ const StartRoutes: React.FC = () => (
       },
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <MI name="arrow-left" size={28} color={THEME.color2} />
+          <MI name="arrow-left" size={28} color={THEME.background3} />
         </TouchableOpacity>
       ),
       headerTitleAlign: 'center',
