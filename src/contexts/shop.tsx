@@ -16,25 +16,28 @@ export const ShopProvider: React.FC = ({ children }) => {
   const [bestSellers, setBestSellers] = useState<Product[]>([]);
 
   const loadCategories = async () => {
-    const data = await RequestBase('categories');
+    const data = await RequestBase({ route: 'categories' });
     setCategories(data.body);
   };
 
   const loadProducts = async ({ category, page }: ProductSearch) => {
-    const data = await RequestBase('products', 'get', {
-      category,
-      page,
+    const data = await RequestBase({
+      route: 'products',
+      params: {
+        category,
+        page,
+      },
     });
     setProducts(data.body);
   };
 
   const loadOnSale = async () => {
-    const data = await RequestBase('onsale');
+    const data = await RequestBase({ route: 'onsale' });
     setOnSale(data.body);
   };
 
   const loadBestSellers = async () => {
-    const data = await RequestBase('onsale');
+    const data = await RequestBase({ route: 'onsale' });
     if (data) setBestSellers(data.body);
   };
 

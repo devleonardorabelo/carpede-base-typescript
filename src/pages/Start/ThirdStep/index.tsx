@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { SafeAreaView, View, ScrollView } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
+import AuthContext from '../../../contexts/auth';
 
 import styles from '../styles';
 import { CircularButton, TextInput } from '../../../components';
+import RequestBase from '../../../services/api';
 
 type ParamList = {
   params: {
@@ -18,13 +20,14 @@ type ParamList = {
 const ThirdStep: React.FC = () => {
   const [address, setAddress] = useState<string>('');
   const [complement, setComplement] = useState<string>('');
-  const [number, setNumber] = useState<string>('');
+  const [number, setNumber] = useState<number>(0);
   const [area, setArea] = useState<string>('');
 
   const { params } = useRoute<RouteProp<ParamList, 'params'>>();
   const { name, CPF, whatsapp, latitude, longitude } = params;
+  const { signUp } = useContext(AuthContext);
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     const customer = {
       name,
       CPF,
@@ -33,11 +36,14 @@ const ThirdStep: React.FC = () => {
       complement,
       number,
       area,
-      latitude,
-      longitude,
+      latitude: Number(latitude),
+      longitude: Number(longitude),
     };
-
-    console.log(customer);
+    await signUp(customer);
+    await RequestBase({
+      route: 'customer',
+      body: customer,
+    });
   };
 
   return (
@@ -48,7 +54,7 @@ const ThirdStep: React.FC = () => {
         <View style={styles.row}>
           <TextInput
             label="Número"
-            onChangeText={(e) => setNumber(e)}
+            onChangeText={(e) => setNumber(Number(e))}
             style={{ width: '25%' }}
             keyboardType="numeric"
           />

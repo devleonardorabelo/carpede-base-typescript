@@ -31,10 +31,12 @@ export type HttpClient<R = any> = {
 
 export type Customer = {
   name: string;
+  CPF: string;
   whatsapp: string;
   address: string;
   complement: string;
   number: number;
+  area: string;
   latitude: number;
   longitude: number;
 };
@@ -43,7 +45,7 @@ export type ContextProvider = {
   signed: boolean;
   customer?: Customer | null;
   signIn?: () => Promise<void>;
-  signUp?: (customer: Customer) => Promise<void>;
+  signUp: (customer: Customer) => Promise<any>;
   signOut?: () => Promise<void>;
 };
 
@@ -53,12 +55,7 @@ export type Product = {
   name: string;
   description: string;
   price: number;
-  category: {
-    _id: string;
-    image: string;
-    name: string;
-    store_id: string;
-  };
+  category: Category;
   store_id: string;
   sold: number;
   onSale: boolean;

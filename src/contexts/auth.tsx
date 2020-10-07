@@ -9,14 +9,16 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [customer, setCustomer] = useState<Customer | null>(null);
 
   const saveCustomer = (current: Customer) => {
-    const { name, whatsapp, address, complement, number, latitude, longitude } = current;
+    const { name, CPF, whatsapp, address, complement, number, area, latitude, longitude } = current;
 
     return setCustomer({
       name,
+      CPF,
       whatsapp,
       address,
       complement,
       number,
+      area,
       latitude,
       longitude,
     });

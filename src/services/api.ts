@@ -1,12 +1,21 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import AxiosHttpClient from './http-client';
 import { HttpMethod, HttpResponse } from '../types';
 import { API_DOMAIN, STORE_ID } from '../constants';
 
-const RequestBase = async (
-  route: string,
-  method?: HttpMethod,
-  params?: { page?: number; filter?: string; category?: string },
-): Promise<HttpResponse> => {
+type RequestParams = {
+  route: string;
+  method?: HttpMethod;
+  params?: { page?: number; filter?: string; category?: string };
+  body?: any;
+};
+
+const RequestBase = async ({
+  route,
+  method,
+  params,
+  body,
+}: RequestParams): Promise<HttpResponse> => {
   return new AxiosHttpClient({
     url: `${API_DOMAIN}/${route}`,
     method: method || 'get',
@@ -14,6 +23,7 @@ const RequestBase = async (
       store_id: STORE_ID,
       ...params,
     },
+    body,
   }).request();
 };
 
