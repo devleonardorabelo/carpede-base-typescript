@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { SafeAreaView, View, ScrollView } from 'react-native';
+import { RouteProp, useRoute } from '@react-navigation/native';
 
 import styles from '../styles';
-import { ScrollView } from 'react-native-gesture-handler';
-import { CircularButton, TextInput, TextInputMask } from '../../../components';
-import { RouteProp, useRoute } from '@react-navigation/native';
+import { CircularButton, TextInput } from '../../../components';
 
 type ParamList = {
   params: {

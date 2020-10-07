@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Text, SafeAreaView, View, PermissionsAndroid } from 'react-native';
+import { Text, SafeAreaView, View, PermissionsAndroid, ScrollView, Keyboard } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { CircularButton, TextInput, TextInputMask } from '../../../components';
-
 import styles from '../styles';
-import { ScrollView } from 'react-native-gesture-handler';
+import { CircularButton, TextInput, TextInputMask } from '../../../components';
 
 const FirstStep: React.FC = () => {
   const [name, setName] = useState<string>('');
@@ -16,9 +14,13 @@ const FirstStep: React.FC = () => {
   const { navigate } = useNavigation();
 
   useEffect(() => {
-    if (name.length >= 4 && whatsapp.length >= 14) setDone(true);
-    else setDone(false);
-  }, [name, whatsapp]);
+    if (name.length >= 4 && CPF.length === 14 && whatsapp.length === 15) {
+      setDone(true);
+      Keyboard.dismiss();
+    } else {
+      setDone(false);
+    }
+  }, [name, CPF, whatsapp]);
 
   const navigateToSecondStep = async () => {
     const getPermission = await PermissionsAndroid.request(

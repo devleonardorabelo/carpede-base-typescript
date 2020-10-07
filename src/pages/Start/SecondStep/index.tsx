@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Text, SafeAreaView, View } from 'react-native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
+
 import FA from 'react-native-vector-icons/FontAwesome5';
+import { THEME } from '../../../constants';
 
 import styles from '../styles';
 import { CircularButton } from '../../../components';
-import { THEME } from '../../../constants';
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 
 interface ICurrentPosition {
   latitude: number;
