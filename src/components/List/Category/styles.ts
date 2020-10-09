@@ -6,11 +6,14 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     marginBottom: 16,
   },
-  itemsTitle: THEME.subtitle,
-  itemName: THEME.boldText,
+  subtitle: THEME.subtitle,
+  boldText: THEME.boldText,
   normalItem: {
     width: 150,
     marginBottom: 24,
+  },
+  onSale: {
+    marginLeft: 8,
   },
   normalItemImage: {
     width: 150,

@@ -53,7 +53,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     void signIn();
-    console.log(customer);
   }, []);
 
   return (

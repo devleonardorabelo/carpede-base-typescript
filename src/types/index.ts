@@ -55,9 +55,8 @@ export type Product = {
   name: string;
   description: string;
   price: number;
-  category: Category;
-  store_id: string;
-  sold: number;
+  category?: Category;
+  sold?: number;
   onSale: boolean;
   onSaleValue: number;
 };
@@ -66,7 +65,6 @@ export type Category = {
   _id: string;
   image: string;
   name: string;
-  store_id: string;
 };
 
 export type ProductSearch = {

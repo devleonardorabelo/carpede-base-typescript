@@ -3,10 +3,10 @@ import { SafeAreaView, View, ScrollView } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
 import AuthContext from '../../../contexts/auth';
+import RequestBase from '../../../services/api';
 
 import styles from '../styles';
 import { CircularButton, TextInput } from '../../../components';
-import RequestBase from '../../../services/api';
 
 type ParamList = {
   params: {
@@ -24,6 +24,7 @@ const ThirdStep: React.FC = () => {
   const [number, setNumber] = useState<number>(0);
   const [area, setArea] = useState<string>('');
   const [deviceToken, setDeviceToken] = useState<string>('');
+  const [done, setDone] = useState<boolean>(false);
 
   const { params } = useRoute<RouteProp<ParamList, 'params'>>();
   const { name, CPF, whatsapp, latitude, longitude } = params;
@@ -58,6 +59,14 @@ const ThirdStep: React.FC = () => {
     void getTokenDevice();
   }, []);
 
+  useEffect(() => {
+    if (address.length >= 4 && number > 0 && area.length >= 4) {
+      setDone(true);
+    } else {
+      setDone(false);
+    }
+  }, [address, number, area]);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.section}>
@@ -77,7 +86,7 @@ const ThirdStep: React.FC = () => {
           />
         </View>
         <View style={{ alignItems: 'center' }}>
-          <CircularButton icon="chevron-right" action={() => handleSignUp()} />
+          <CircularButton icon="chevron-right" action={() => handleSignUp()} disabled={!done} />
         </View>
       </ScrollView>
     </SafeAreaView>
