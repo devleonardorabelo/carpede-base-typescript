@@ -1,6 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { SafeAreaView, View, ScrollView } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
+import messaging from '@react-native-firebase/messaging';
 import AuthContext from '../../../contexts/auth';
 
 import styles from '../styles';
@@ -22,6 +23,7 @@ const ThirdStep: React.FC = () => {
   const [complement, setComplement] = useState<string>('');
   const [number, setNumber] = useState<number>(0);
   const [area, setArea] = useState<string>('');
+  const [deviceToken, setDeviceToken] = useState<string>('');
 
   const { params } = useRoute<RouteProp<ParamList, 'params'>>();
   const { name, CPF, whatsapp, latitude, longitude } = params;
@@ -36,6 +38,7 @@ const ThirdStep: React.FC = () => {
       complement,
       number,
       area,
+      deviceToken,
       latitude: Number(latitude),
       longitude: Number(longitude),
     };
@@ -45,6 +48,15 @@ const ThirdStep: React.FC = () => {
       body: customer,
     });
   };
+
+  const getTokenDevice = async () => {
+    const token = await messaging().getToken();
+    setDeviceToken(token);
+  };
+
+  useEffect(() => {
+    void getTokenDevice();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>

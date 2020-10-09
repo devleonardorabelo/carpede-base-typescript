@@ -44,9 +44,9 @@ export type Customer = {
 export type ContextProvider = {
   signed: boolean;
   customer?: Customer | null;
-  signIn?: () => Promise<void>;
-  signUp: (customer: Customer) => Promise<any>;
-  signOut?: () => Promise<void>;
+  signIn: () => Promise<void> | void;
+  signUp: (customer: Customer) => Promise<any> | void;
+  signOut: () => Promise<void> | void;
 };
 
 export type Product = {

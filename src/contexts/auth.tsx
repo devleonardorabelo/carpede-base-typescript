@@ -3,7 +3,13 @@ import AsyncStorage from '@react-native-community/async-storage';
 import loadCostumer from '../services/auth';
 import { ContextProvider, Customer } from '../types';
 
-const AuthContext = createContext<ContextProvider>({ signed: false, customer: null });
+const AuthContext = createContext<ContextProvider>({
+  signed: false,
+  customer: null,
+  signUp: () => {},
+  signIn: () => {},
+  signOut: () => {},
+});
 
 export const AuthProvider: React.FC = ({ children }) => {
   const [customer, setCustomer] = useState<Customer | null>(null);

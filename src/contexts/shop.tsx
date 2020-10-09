@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import RequestBase from '../services/api';
 import { Shop, Product, Category, ProductSearch } from '../types';
 
-export const ShopContext = createContext<Shop>({
+const ShopContext = createContext<Shop>({
   products: [],
   categories: [],
   onSale: [],
