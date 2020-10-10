@@ -2,10 +2,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../constants';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import FirstStep from '../pages/Start/FirstStep';
 import SecondStep from '../pages/Start/SecondStep';
