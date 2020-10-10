@@ -11,9 +11,9 @@ interface SlideProps {
 }
 
 const Item: React.FC<Category> = ({ image, name }: Category) => (
-  <View style={styles.largeItem}>
+  <View style={styles.normalItem}>
     <Image
-      style={styles.largeItemImage}
+      style={styles.normalItemImage}
       source={{ uri: image, cache: 'only-if-cached' }}
       resizeMode="cover"
     />

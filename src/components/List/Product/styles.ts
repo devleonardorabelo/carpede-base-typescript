@@ -8,18 +8,10 @@ export default StyleSheet.create({
   },
   subtitle: THEME.subtitle,
   boldText: THEME.boldText,
-  normalItem: {
-    width: 150,
-    marginBottom: 24,
-  },
   onSale: {
     marginLeft: 8,
-  },
-  normalItemImage: {
-    width: 150,
-    height: 100,
-    borderRadius: 8,
-    marginBottom: 8,
+    fontSize: 14,
+    textDecorationLine: 'line-through',
   },
   largeItem: {
     marginBottom: 24,

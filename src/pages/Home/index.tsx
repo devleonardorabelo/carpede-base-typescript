@@ -10,12 +10,10 @@ const Home: React.FC = () => {
   const { categories, onSale, bestSellers } = useContext(ShopContext);
   const { signOut, customer } = useContext(AuthContext);
 
-  console.log(onSale);
-
   return (
     <SafeAreaView style={styles.section}>
       <ScrollView>
-        <Header iconLeft="logout" actionLeft={signOut} iconRight="face-profile" title="INICIO" />
+        <Header iconLeft="logout" actionLeft={signOut} iconRight="face-profile" title=" " />
         <View style={styles.container}>
           <Text style={styles.title}>Olá, {customer?.name} </Text>
           <Text style={styles.subtitle}>Tá com Fome de quê?</Text>

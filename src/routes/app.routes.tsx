@@ -24,7 +24,7 @@ const AppRoutes: React.FC = () => (
         };
       },
     }}>
-    <AppStack.Screen name="Home" component={Home} />
+    <AppStack.Screen name="Home" component={Home} options={{ title: '' }} />
   </AppStack.Navigator>
 );
 

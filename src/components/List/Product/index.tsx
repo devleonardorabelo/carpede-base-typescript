@@ -25,12 +25,8 @@ const Item: React.FC<Product> = ({ image, name, price, onSale, onSaleValue }: Pr
     <View style={{ flexDirection: 'row' }}>
       {onSale ? (
         <>
-          <TextMask
-            style={[styles.boldText, styles.onSale]}
-            value={String(onSaleValue)}
-            type={'money'}
-          />
-          <TextMask style={styles.boldText} value={String(price)} type={'money'} />
+          <TextMask style={styles.boldText} value={String(onSaleValue)} type={'money'} />
+          <TextMask style={[styles.boldText, styles.onSale]} value={String(price)} type={'money'} />
         </>
       ) : (
         <TextMask style={styles.boldText} value={String(price)} type={'money'} />
