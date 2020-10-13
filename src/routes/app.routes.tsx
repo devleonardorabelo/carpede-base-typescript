@@ -49,9 +49,15 @@ const AppRoutes: React.FC = () => {
         name="Home"
         component={Home}
         options={() => ({
+          title: '',
           headerLeft: () => (
             <TouchableOpacity onPress={signOut}>
-              <MI name="logout" size={28} color={THEME.background3} />
+              <MI name="logout" size={28} color={THEME.color2} />
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <TouchableOpacity onPress={signOut}>
+              <MI name="face-profile" size={28} color={THEME.color2} />
             </TouchableOpacity>
           ),
         })}

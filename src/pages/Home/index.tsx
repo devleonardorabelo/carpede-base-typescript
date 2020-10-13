@@ -1,18 +1,20 @@
 import React, { useContext } from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { ScrollView, StatusBar, Text, View } from 'react-native';
 import { SearchInput, CategoryList, ProductList } from '../../components';
 import ShopContext from '../../contexts/shop';
 import AuthContext from '../../contexts/auth';
 
 import styles from './styles';
+import { THEME } from '../../constants';
 
 const Home: React.FC = () => {
   const { categories, onSale, bestSellers } = useContext(ShopContext);
   const { customer } = useContext(AuthContext);
 
   return (
-    <SafeAreaView style={styles.section}>
-      <ScrollView>
+    <>
+      <StatusBar backgroundColor={THEME.background1} barStyle="dark-content" />
+      <ScrollView style={styles.section}>
         <View style={styles.container}>
           <Text style={styles.title}>Olá, {customer?.name} </Text>
           <Text style={styles.subtitle}>Tá com Fome de quê?</Text>
@@ -22,7 +24,7 @@ const Home: React.FC = () => {
         <ProductList data={onSale} title="Promoções" product />
         <ProductList data={bestSellers} title="Mais Vendidos" product />
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 

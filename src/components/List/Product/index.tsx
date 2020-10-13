@@ -11,26 +11,43 @@ interface SlideProps {
   title: string;
 }
 
-const Item: React.FC<Product> = ({ image, name, price, onSale, onSaleValue }: Product) => (
+const Item: React.FC<Product> = ({
+  image,
+  name,
+  price,
+  onSale,
+  onSaleValue,
+  description,
+}: Product) => (
   <View style={styles.largeItem}>
     <Image
       style={styles.largeItemImage}
       source={{ uri: image, cache: 'only-if-cached' }}
       resizeMode="cover"
     />
-    <View style={{ flexDirection: 'row' }}>
-      <Text style={styles.boldText}>{name}</Text>
-    </View>
-
-    <View style={{ flexDirection: 'row' }}>
-      {onSale ? (
-        <>
-          <TextMask style={styles.boldText} value={String(onSaleValue)} type={'money'} />
-          <TextMask style={[styles.boldText, styles.onSale]} value={String(price)} type={'money'} />
-        </>
-      ) : (
-        <TextMask style={styles.boldText} value={String(price)} type={'money'} />
-      )}
+    <View style={{ justifyContent: 'space-between', flex: 1 }}>
+      <View>
+        <Text style={styles.boldText}>{name}</Text>
+        <Text style={[styles.lightText, { marginBottom: 8 }]}>{description.slice(0, 40)}...</Text>
+      </View>
+      <View style={{ flexDirection: 'row' }}>
+        {onSale ? (
+          <>
+            <TextMask
+              style={[styles.boldText, styles.price]}
+              value={String(onSaleValue)}
+              type={'money'}
+            />
+            <TextMask
+              style={[styles.boldText, styles.onSale]}
+              value={String(price)}
+              type={'money'}
+            />
+          </>
+        ) : (
+          <TextMask style={[styles.boldText, styles.price]} value={String(price)} type={'money'} />
+        )}
+      </View>
     </View>
   </View>
 );
