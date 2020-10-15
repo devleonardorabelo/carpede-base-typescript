@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import React, { useContext } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -7,6 +10,7 @@ import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../constants';
 
 import Home from '../pages/Home';
+import Product from '../pages/Product';
 
 const AppStack = createStackNavigator();
 
@@ -16,6 +20,7 @@ const AppRoutes: React.FC = () => {
   return (
     <AppStack.Navigator
       screenOptions={{
+        title: ' ',
         headerStyle: {
           elevation: 0,
         },
@@ -49,7 +54,6 @@ const AppRoutes: React.FC = () => {
         name="Home"
         component={Home}
         options={() => ({
-          title: '',
           headerLeft: () => (
             <TouchableOpacity onPress={signOut}>
               <MI name="logout" size={28} color={THEME.color2} />
@@ -58,6 +62,17 @@ const AppRoutes: React.FC = () => {
           headerRight: () => (
             <TouchableOpacity onPress={signOut}>
               <MI name="face-profile" size={28} color={THEME.color2} />
+            </TouchableOpacity>
+          ),
+        })}
+      />
+      <AppStack.Screen
+        name="Product"
+        component={Product}
+        options={({ navigation }) => ({
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <MI name="arrow-left" size={28} color={THEME.color2} />
             </TouchableOpacity>
           ),
         })}

@@ -1,5 +1,7 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Image, Text, View, FlatList } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { TextMask } from 'react-native-masked-text';
 import { Product } from '../../../types';
 
@@ -18,39 +20,49 @@ const Item: React.FC<Product> = ({
   onSale,
   onSaleValue,
   description,
-}: Product) => (
-  <View style={styles.largeItem}>
-    <Image
-      style={styles.largeItemImage}
-      source={{ uri: image, cache: 'only-if-cached' }}
-      resizeMode="cover"
-    />
-    <View style={{ justifyContent: 'space-between', flex: 1 }}>
-      <View>
-        <Text style={styles.boldText}>{name}</Text>
-        <Text style={[styles.lightText, { marginBottom: 8 }]}>{description.slice(0, 40)}...</Text>
-      </View>
-      <View style={{ flexDirection: 'row' }}>
-        {onSale ? (
-          <>
+}: Product) => {
+  const { navigate } = useNavigation();
+
+  return (
+    <TouchableOpacity
+      style={styles.largeItem}
+      onPress={() => navigate('Product', { image, name, price, onSale, onSaleValue, description })}>
+      <Image
+        style={styles.largeItemImage}
+        source={{ uri: image, cache: 'only-if-cached' }}
+        resizeMode="cover"
+      />
+      <View style={{ justifyContent: 'space-between', flex: 1 }}>
+        <View>
+          <Text style={styles.boldText}>{name}</Text>
+          <Text style={[styles.lightText, { marginBottom: 8 }]}>{description.slice(0, 40)}...</Text>
+        </View>
+        <View style={{ flexDirection: 'row' }}>
+          {onSale ? (
+            <>
+              <TextMask
+                style={[styles.boldText, styles.price]}
+                value={String(onSaleValue)}
+                type={'money'}
+              />
+              <TextMask
+                style={[styles.boldText, styles.onSale]}
+                value={String(price)}
+                type={'money'}
+              />
+            </>
+          ) : (
             <TextMask
               style={[styles.boldText, styles.price]}
-              value={String(onSaleValue)}
-              type={'money'}
-            />
-            <TextMask
-              style={[styles.boldText, styles.onSale]}
               value={String(price)}
               type={'money'}
             />
-          </>
-        ) : (
-          <TextMask style={[styles.boldText, styles.price]} value={String(price)} type={'money'} />
-        )}
+          )}
+        </View>
       </View>
-    </View>
-  </View>
-);
+    </TouchableOpacity>
+  );
+};
 
 const ProductList: React.FC<SlideProps> = ({ data, title }: SlideProps) => (
   <View>
