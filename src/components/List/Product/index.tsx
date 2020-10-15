@@ -26,7 +26,7 @@ const Item: React.FC<Product> = ({
   return (
     <TouchableOpacity
       style={styles.largeItem}
-      onPress={() => navigate('Product', { image, name, price, onSale, onSaleValue, description })}>
+      onPress={() => navigate('View', { image, name, price, onSale, onSaleValue, description })}>
       <Image
         style={styles.largeItemImage}
         source={{ uri: image, cache: 'only-if-cached' }}

@@ -10,7 +10,7 @@ import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../constants';
 
 import Home from '../pages/Home';
-import Product from '../pages/Product';
+import View from '../pages/View';
 
 const AppStack = createStackNavigator();
 
@@ -67,8 +67,8 @@ const AppRoutes: React.FC = () => {
         })}
       />
       <AppStack.Screen
-        name="Product"
-        component={Product}
+        name="View"
+        component={View}
         options={({ navigation }) => ({
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.goBack()}>
