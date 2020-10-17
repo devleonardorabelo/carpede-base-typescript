@@ -11,12 +11,13 @@ import {
 import styles from './styles';
 
 interface Props {
-  label: string;
+  label: string | JSX.Element;
   placeholder?: string;
   onChangeText: (e: any) => void;
   onSubmitEditing?: () => void;
   style?: StyleProp<ViewStyle>;
   keyboardType?: KeyboardTypeOptions;
+  multiline?: boolean;
 }
 
 const TextInput: React.FC<Props> = ({
@@ -26,6 +27,7 @@ const TextInput: React.FC<Props> = ({
   onSubmitEditing,
   style,
   keyboardType,
+  multiline,
 }) => (
   <View style={[styles.textInputBox, style]}>
     <Text style={styles.labelInput}>{label}</Text>
@@ -35,6 +37,7 @@ const TextInput: React.FC<Props> = ({
       onChangeText={onChangeText}
       onSubmitEditing={onSubmitEditing}
       keyboardType={keyboardType || 'default'}
+      multiline={multiline}
     />
   </View>
 );

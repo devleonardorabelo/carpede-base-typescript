@@ -13,8 +13,9 @@ export default StyleSheet.create({
     color: THEME.color5,
   },
   onSale: {
+    color: THEME.color3,
     marginLeft: 8,
-    fontSize: 14,
+    fontFamily: 'Montserrat Light',
     textDecorationLine: 'line-through',
   },
   largeItem: {

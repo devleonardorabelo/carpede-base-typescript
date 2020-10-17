@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useRoute, RouteProp } from '@react-navigation/native';
 import { Image, ScrollView, Text, View } from 'react-native';
+import { useRoute, RouteProp } from '@react-navigation/native';
+import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styles from './styles';
 import { TextMask } from 'react-native-masked-text';
-import { RectangularButton, SquareButton } from '../../components';
+import { RectangularButton, SquareButton, TextInput } from '../../components';
 
 type ParamList = {
   View: {
@@ -23,6 +24,8 @@ const ViewProduct: React.FC = () => {
   const { params } = useRoute<ScreenRouteProp>();
 
   const [quantity, setQuantity] = useState<number>(1);
+  const [comments, setComments] = useState<string>('');
+
   return (
     <>
       <ScrollView style={styles.section}>
@@ -42,6 +45,19 @@ const ViewProduct: React.FC = () => {
               <TextMask style={styles.onSale} value={String(params?.price)} type="money" />
             </Text>
           )}
+        </View>
+        <View style={styles.container}>
+          <TextInput
+            label={
+              <>
+                <MI name="comment" size={16} />
+                <Text> Alguma observação?</Text>
+              </>
+            }
+            placeholder="Ex: Sem cebola, molho à parte"
+            onChangeText={() => {}}
+            multiline
+          />
         </View>
       </ScrollView>
       <View style={styles.bottomTabAdd}>
