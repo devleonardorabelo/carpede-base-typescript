@@ -33,6 +33,7 @@ const AppRoutes: React.FC = () => {
         headerTitleStyle: {
           color: THEME.color2,
           fontFamily: 'Montserrat SemiBold',
+          fontSize: 16,
         },
         headerTitleAlign: 'center',
         cardStyleInterpolator: ({ current, layouts }) => {
@@ -70,6 +71,7 @@ const AppRoutes: React.FC = () => {
         name="View"
         component={View}
         options={({ navigation }) => ({
+          title: 'DETALHES',
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.goBack()}>
               <MI name="arrow-left" size={28} color={THEME.color2} />
