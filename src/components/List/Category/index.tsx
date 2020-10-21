@@ -1,5 +1,7 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Image, Text, View, FlatList } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Category } from '../../../types';
 
 import styles from './styles';
@@ -10,18 +12,21 @@ interface SlideProps {
   title: string;
 }
 
-const Item: React.FC<Category> = ({ image, name }: Category) => (
-  <View style={styles.normalItem}>
-    <Image
-      style={styles.normalItemImage}
-      source={{ uri: image, cache: 'only-if-cached' }}
-      resizeMode="cover"
-    />
-    <View style={{ flexDirection: 'row' }}>
-      <Text style={styles.boldText}>{name}</Text>
-    </View>
-  </View>
-);
+const Item: React.FC<Category> = ({ _id, image, name }: Category) => {
+  const { navigate } = useNavigation();
+  return (
+    <TouchableOpacity style={styles.normalItem} onPress={() => navigate('List', { _id })}>
+      <Image
+        style={styles.normalItemImage}
+        source={{ uri: image, cache: 'only-if-cached' }}
+        resizeMode="cover"
+      />
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={styles.boldText}>{name}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const CategoryList: React.FC<SlideProps> = ({ data, title }: SlideProps) => (
   <View>

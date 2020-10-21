@@ -70,6 +70,7 @@ export type Category = {
 export type ProductSearch = {
   category?: string;
   page?: number;
+  filter?: string;
 };
 
 export type Shop = {
@@ -77,5 +78,19 @@ export type Shop = {
   categories: Category[];
   onSale: Product[];
   bestSellers: Product[];
-  loadProducts?: ({ category, page }: ProductSearch) => Promise<void>;
+  loadProducts: ({ category, page }: ProductSearch | any) => Promise<void> | any;
+};
+
+export type ParamList = {
+  List: {
+    _id: string;
+  };
+  View: {
+    image: string;
+    name: string;
+    price: number;
+    onSale: string;
+    onSaleValue: number;
+    description: string;
+  };
 };

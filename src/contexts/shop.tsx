@@ -7,6 +7,7 @@ const ShopContext = createContext<Shop>({
   categories: [],
   onSale: [],
   bestSellers: [],
+  loadProducts: () => {},
 });
 
 export const ShopProvider: React.FC = ({ children }) => {
@@ -20,15 +21,16 @@ export const ShopProvider: React.FC = ({ children }) => {
     setCategories(data.body);
   };
 
-  const loadProducts = async ({ category, page }: ProductSearch) => {
+  const loadProducts = async ({ category, page, filter }: ProductSearch) => {
     const data = await RequestBase({
       route: 'products',
       params: {
         category,
         page,
+        filter,
       },
     });
-    setProducts(data.body);
+    void setProducts(data.body);
   };
 
   const loadOnSale = async () => {

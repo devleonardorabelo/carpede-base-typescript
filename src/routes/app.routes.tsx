@@ -11,6 +11,7 @@ import { THEME } from '../constants';
 
 import Home from '../pages/Home';
 import View from '../pages/View';
+import List from '../pages/List';
 
 const AppStack = createStackNavigator();
 
@@ -72,6 +73,18 @@ const AppRoutes: React.FC = () => {
         component={View}
         options={({ navigation }) => ({
           title: 'DETALHES',
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <MI name="arrow-left" size={28} color={THEME.color2} />
+            </TouchableOpacity>
+          ),
+        })}
+      />
+      <AppStack.Screen
+        name="List"
+        component={List}
+        options={({ navigation }) => ({
+          title: 'CATEGORIA',
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.goBack()}>
               <MI name="arrow-left" size={28} color={THEME.color2} />

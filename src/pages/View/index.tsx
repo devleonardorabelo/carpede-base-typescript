@@ -1,22 +1,13 @@
 import React, { useState } from 'react';
 import { Image, ScrollView, Text, View } from 'react-native';
 import { useRoute, RouteProp } from '@react-navigation/native';
+import { TextMask } from 'react-native-masked-text';
+import { ParamList } from '../../types';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styles from './styles';
-import { TextMask } from 'react-native-masked-text';
-import { RectangularButton, SquareButton, TextInput } from '../../components';
 
-type ParamList = {
-  View: {
-    image: string;
-    name: string;
-    price: number;
-    onSale: string;
-    onSaleValue: number;
-    description: string;
-  };
-};
+import { RectangularButton, SquareButton, TextInput } from '../../components';
 
 type ScreenRouteProp = RouteProp<ParamList, 'View'>;
 
@@ -42,7 +33,7 @@ const ViewProduct: React.FC = () => {
             </Text>
           ) : (
             <Text style={styles.subtitle}>
-              <TextMask style={styles.onSale} value={String(params?.price)} type="money" />
+              <TextMask style={styles.price} value={String(params?.price)} type="money" />
             </Text>
           )}
         </View>

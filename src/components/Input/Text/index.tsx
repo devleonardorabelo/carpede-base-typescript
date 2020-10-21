@@ -13,7 +13,7 @@ import styles from './styles';
 interface Props {
   label: string | JSX.Element;
   placeholder?: string;
-  onChangeText: (e: any) => void;
+  onChangeText: (e: string) => void;
   onSubmitEditing?: () => void;
   style?: StyleProp<ViewStyle>;
   keyboardType?: KeyboardTypeOptions;
