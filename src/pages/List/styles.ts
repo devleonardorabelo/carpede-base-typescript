@@ -7,6 +7,6 @@ export default StyleSheet.create({
     minHeight: '100%',
   },
   container: {
-    padding: 16,
+    paddingHorizontal: 16,
   },
 });

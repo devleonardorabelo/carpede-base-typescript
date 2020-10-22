@@ -12,7 +12,9 @@ import { RectangularButton, SquareButton, TextInput } from '../../components';
 type ScreenRouteProp = RouteProp<ParamList, 'View'>;
 
 const ViewProduct: React.FC = () => {
-  const { params } = useRoute<ScreenRouteProp>();
+  const {
+    params: { image, name, description, onSale, price, onSaleValue },
+  } = useRoute<ScreenRouteProp>();
 
   const [quantity, setQuantity] = useState<number>(1);
   const [comments, setComments] = useState<string>('');
@@ -20,20 +22,20 @@ const ViewProduct: React.FC = () => {
   return (
     <>
       <ScrollView style={styles.section}>
-        <Image style={styles.image} source={{ uri: params?.image }} />
+        <Image style={styles.image} source={{ uri: image }} />
         <View style={styles.container}>
-          <Text style={styles.title}>{params?.name}</Text>
-          <Text style={[styles.text, { marginBottom: 8 }]}>{params?.description}</Text>
-          {params.onSale ? (
+          <Text style={styles.title}>{name}</Text>
+          <Text style={[styles.text, { marginBottom: 8 }]}>{description}</Text>
+          {onSale ? (
             <Text style={styles.subtitle}>
               {'De '}
-              <TextMask style={styles.onSale} value={String(params?.price)} type="money" />
+              <TextMask style={styles.onSale} value={String(price)} type="money" />
               {' por '}
-              <TextMask style={styles.price} value={String(params?.onSaleValue)} type="money" />
+              <TextMask style={styles.price} value={String(onSaleValue)} type="money" />
             </Text>
           ) : (
             <Text style={styles.subtitle}>
-              <TextMask style={styles.price} value={String(params?.price)} type="money" />
+              <TextMask style={styles.price} value={String(price)} type="money" />
             </Text>
           )}
         </View>
@@ -62,15 +64,15 @@ const ViewProduct: React.FC = () => {
         />
         <RectangularButton
           title={
-            params?.onSale ? (
+            onSale ? (
               <>
                 <Text>{quantity} por </Text>
-                <TextMask value={String(params?.onSaleValue * quantity)} type="money" />
+                <TextMask value={String(onSaleValue * quantity)} type="money" />
               </>
             ) : (
               <>
                 <Text>{quantity} por </Text>
-                <TextMask value={String(params?.price * quantity)} type="money" />
+                <TextMask value={String(price * quantity)} type="money" />
               </>
             )
           }

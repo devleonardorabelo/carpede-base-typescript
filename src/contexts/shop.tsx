@@ -30,7 +30,7 @@ export const ShopProvider: React.FC = ({ children }) => {
         filter,
       },
     });
-    void setProducts(data.body);
+    setProducts(data.body);
   };
 
   const loadOnSale = async () => {
