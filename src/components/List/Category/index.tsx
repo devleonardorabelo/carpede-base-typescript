@@ -15,7 +15,7 @@ interface SlideProps {
 const Item: React.FC<Category> = ({ _id, image, name }: Category) => {
   const { navigate } = useNavigation();
   return (
-    <TouchableOpacity style={styles.normalItem} onPress={() => navigate('List', { _id })}>
+    <TouchableOpacity style={styles.normalItem} onPress={() => navigate('List', { _id, name })}>
       <Image
         style={styles.normalItemImage}
         source={{ uri: image, cache: 'only-if-cached' }}

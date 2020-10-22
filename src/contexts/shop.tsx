@@ -25,7 +25,7 @@ export const ShopProvider: React.FC = ({ children }) => {
     const data = await RequestBase({
       route: 'products',
       params: {
-        category,
+        category: category._id,
         page,
         filter,
       },

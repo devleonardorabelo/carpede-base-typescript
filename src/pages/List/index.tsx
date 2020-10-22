@@ -13,11 +13,11 @@ const List: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const { loadProducts, products } = useContext(ShopContext);
   const {
-    params: { _id },
+    params: { _id, name },
   } = useRoute<ScreenRouteProp>();
 
   const loadProductList = async () => {
-    await loadProducts({ category: _id, page: 1 });
+    await loadProducts({ category: { _id, name }, page: 1 });
     setLoading(false);
   };
 
@@ -27,6 +27,7 @@ const List: React.FC = () => {
 
   return (
     <SafeAreaView style={[styles.section, styles.container]}>
+      <Text style={styles.title}>{name}</Text>
       {loading ? <Text>Loading</Text> : <VerticalProductList data={products} />}
     </SafeAreaView>
   );

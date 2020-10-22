@@ -9,4 +9,8 @@ export default StyleSheet.create({
   container: {
     paddingHorizontal: 16,
   },
+  title: {
+    ...THEME.title,
+    marginBottom: 16,
+  },
 });

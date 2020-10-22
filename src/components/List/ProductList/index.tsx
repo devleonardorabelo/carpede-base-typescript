@@ -1,13 +1,14 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Image, Text, View } from 'react-native';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import { Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
 import { Product } from '../../../types';
+
 import styles from './styles';
 
 interface SlideProps {
   data: Product[];
+  loading: boolean;
 }
 
 const Item: React.FC<Product> = ({
@@ -47,8 +48,10 @@ const Item: React.FC<Product> = ({
   );
 };
 
-const ProductList: React.FC<SlideProps> = ({ data }: SlideProps) => {
-  return (
+const ProductList: React.FC<SlideProps> = ({ data, loading }: SlideProps) => {
+  return loading ? (
+    <Text>Carregando</Text>
+  ) : (
     <FlatList
       data={data}
       keyExtractor={(item) => String(item._id)}

@@ -68,7 +68,10 @@ export type Category = {
 };
 
 export type ProductSearch = {
-  category?: string;
+  category: {
+    _id: string;
+    name: string;
+  };
   page?: number;
   filter?: string;
 };
@@ -84,6 +87,7 @@ export type Shop = {
 export type ParamList = {
   List: {
     _id: string;
+    name: string;
   };
   View: {
     image: string;
