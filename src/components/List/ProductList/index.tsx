@@ -4,7 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
 import { Product } from '../../../types';
 
+import Skeleton from 'react-native-skeleton-content-nonexpo';
+
 import styles from './styles';
+import { THEME } from '../../../constants';
 
 interface SlideProps {
   data: Product[];
@@ -49,25 +52,39 @@ const Item: React.FC<Product> = ({
 };
 
 const ProductList: React.FC<SlideProps> = ({ data, loading }: SlideProps) => {
-  return loading ? (
-    <Text>Carregando</Text>
-  ) : (
-    <FlatList
-      data={data}
-      keyExtractor={(item) => String(item._id)}
-      showsHorizontalScrollIndicator={false}
-      renderItem={({ item }) => (
-        <Item
-          _id={item._id}
-          image={item.image}
-          name={item.name}
-          price={item.price}
-          onSale={item.onSale}
-          onSaleValue={item.onSaleValue}
-          description={item.description}
+  return (
+    <Skeleton
+      containerStyle={{ flex: 1 }}
+      isLoading={loading}
+      boneColor={THEME.background2}
+      layout={[
+        { key: '1', width: '100%', height: 98, marginBottom: 22, borderRadius: 8 },
+        { key: '2', width: '100%', height: 98, marginBottom: 22, borderRadius: 8 },
+        { key: '3', width: '100%', height: 98, marginBottom: 22, borderRadius: 8 },
+        { key: '4', width: '100%', height: 98, marginBottom: 22, borderRadius: 8 },
+        { key: '5', width: '100%', height: 98, marginBottom: 22, borderRadius: 8 },
+      ]}>
+      {data.length !== 0 ? (
+        <FlatList
+          data={data}
+          keyExtractor={(item) => String(item._id)}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <Item
+              _id={item._id}
+              image={item.image}
+              name={item.name}
+              price={item.price}
+              onSale={item.onSale}
+              onSaleValue={item.onSaleValue}
+              description={item.description}
+            />
+          )}
         />
+      ) : (
+        <Text>Nenhum Produto nesta categoria</Text>
       )}
-    />
+    </Skeleton>
   );
 };
 

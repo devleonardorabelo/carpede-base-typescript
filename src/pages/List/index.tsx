@@ -28,7 +28,7 @@ const List: React.FC = () => {
   return (
     <SafeAreaView style={[styles.section, styles.container]}>
       <Text style={styles.title}>{name}</Text>
-      {loading ? <Text>Loading</Text> : <VerticalProductList data={products} />}
+      <VerticalProductList data={products} loading={loading} />
     </SafeAreaView>
   );
 };

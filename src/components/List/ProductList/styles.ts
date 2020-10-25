@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
   card: {
     flexDirection: 'row',
-    marginBottom: 24,
+    marginBottom: 16,
   },
   cardBody: {
     paddingHorizontal: 8,
