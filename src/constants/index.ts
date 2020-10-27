@@ -1,3 +1,5 @@
+import { Dimensions } from 'react-native';
+
 export const API_DOMAIN = 'https://batch1.carpede.com';
 export const STORE_ID = '5ef75a9500c9c90017395b20';
 export const THEME = {
@@ -39,5 +41,11 @@ export const THEME = {
     fontSize: 16,
     color: '#2E2E2E',
     flexShrink: 1,
+  },
+  illustration: {
+    width: '100%',
+    maxHeight: Dimensions.get('screen').width * 0.8,
+    resizeMode: 'center',
+    marginVertical: 20,
   },
 };

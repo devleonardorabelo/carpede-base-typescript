@@ -4,6 +4,7 @@ import { THEME } from '../../../constants';
 export default StyleSheet.create({
   boldText: THEME.boldText,
   lightText: THEME.lightText,
+  subtitle: THEME.subtitle,
   price: {
     color: THEME.color5,
   },
@@ -27,4 +28,5 @@ export default StyleSheet.create({
     resizeMode: 'cover',
     borderRadius: 8,
   },
+  illustration: THEME.illustration,
 });

@@ -3,11 +3,13 @@ import { Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
 import { Product } from '../../../types';
+import { THEME } from '../../../constants';
 
 import Skeleton from 'react-native-skeleton-content-nonexpo';
 
 import styles from './styles';
-import { THEME } from '../../../constants';
+
+import imgChef from '../../../assets/images/chef.png';
 
 interface SlideProps {
   data: Product[];
@@ -82,7 +84,10 @@ const ProductList: React.FC<SlideProps> = ({ data, loading }: SlideProps) => {
           )}
         />
       ) : (
-        <Text>Nenhum Produto nesta categoria</Text>
+        <>
+          <Text style={styles.subtitle}>Nenhum produto disponível nessa Categoria</Text>
+          <Image source={imgChef} style={styles.illustration} />
+        </>
       )}
     </Skeleton>
   );
