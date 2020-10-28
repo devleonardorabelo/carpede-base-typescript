@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { ScrollView, StatusBar, Text, View } from 'react-native';
-import { SearchInput, CategoryList, ProductList } from '../../components';
 import ShopContext from '../../contexts/shop';
 import AuthContext from '../../contexts/auth';
+import { THEME } from '../../constants';
 
 import styles from './styles';
-import { THEME } from '../../constants';
+
+import { SearchInput, CategoryList, ProductList } from '../../components';
 
 const Home: React.FC = () => {
   const { categories, onSale, bestSellers } = useContext(ShopContext);
