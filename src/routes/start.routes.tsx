@@ -28,6 +28,7 @@ const StartRoutes: React.FC = () => (
       headerTitleStyle: {
         color: THEME.color2,
         fontFamily: 'Montserrat SemiBold',
+        fontSize: 16,
       },
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -50,18 +51,22 @@ const StartRoutes: React.FC = () => (
         };
       },
     })}>
-    <StartStack.Screen options={{ headerShown: false }} name="FirstStep" component={FirstStep} />
+    <StartStack.Screen
+      options={{ title: 'BEM-VINDO', headerLeft: () => null }}
+      name="FirstStep"
+      component={FirstStep}
+    />
     <StartStack.Screen
       options={{
         headerTransparent: true,
-        title: 'Onde você está?',
+        title: 'ONDE VOCÊ ESTÁ?',
       }}
       name="SecondStep"
       component={SecondStep}
     />
     <StartStack.Screen
       options={{
-        title: 'Endereço de Entrega',
+        title: 'ENDEREÇO DE ENTREGA',
       }}
       name="ThirdStep"
       component={ThirdStep}

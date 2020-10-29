@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Text, SafeAreaView, View, PermissionsAndroid, ScrollView, Keyboard } from 'react-native';
+import {
+  Text,
+  SafeAreaView,
+  View,
+  PermissionsAndroid,
+  ScrollView,
+  Keyboard,
+  StatusBar,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import styles from '../styles';
 import { CircularButton, TextInput, TextInputMask } from '../../../components';
+import { THEME } from '../../../constants';
 
 const FirstStep: React.FC = () => {
   const [name, setName] = useState<string>('');
@@ -32,10 +41,11 @@ const FirstStep: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor={THEME.background1} />
       <ScrollView style={styles.section}>
-        <Text style={styles.title}>Seja bem-vindo(a)</Text>
+        <Text style={styles.title}>Sobre você</Text>
         <Text style={[styles.subtitle, { marginBottom: 32 }]}>
-          Primeiro precisamos saber mais sobre você
+          Precisamos de algumas informações.
         </Text>
         <TextInput
           label="Qual o seu nome?"

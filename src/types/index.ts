@@ -81,13 +81,14 @@ export type Shop = {
   categories: Category[];
   onSale: Product[];
   bestSellers: Product[];
-  loadProducts: ({ category, page }: ProductSearch | any) => Promise<void> | any;
+  loadProducts: ({ category, page, filter }: ProductSearch | any) => Promise<void> | any;
 };
 
 export type ParamList = {
   List: {
     _id: string;
     name: string;
+    filter?: string;
   };
   View: {
     image: string;
