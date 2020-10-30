@@ -98,4 +98,16 @@ export type ParamList = {
     onSaleValue: number;
     description: string;
   };
+  Location: {
+    name: string;
+    CPF: string;
+    whatsapp: string;
+  };
+};
+
+export type ICurrentPosition = {
+  latitude: number;
+  longitude: number;
+  latitudeDelta: number;
+  longitudeDelta: number;
 };

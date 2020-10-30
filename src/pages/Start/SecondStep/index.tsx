@@ -3,27 +3,12 @@ import { Text, SafeAreaView, View } from 'react-native';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
-
+import { ICurrentPosition, ParamList } from '../../../types';
 import FA from 'react-native-vector-icons/FontAwesome5';
 import { THEME } from '../../../constants';
 
 import styles from '../styles';
 import { CircularButton } from '../../../components';
-
-interface ICurrentPosition {
-  latitude: number;
-  longitude: number;
-  latitudeDelta: number;
-  longitudeDelta: number;
-}
-
-type ParamList = {
-  params: {
-    name: string;
-    CPF: string;
-    whatsapp: string;
-  };
-};
 
 const SecondStep: React.FC = () => {
   const [latitude, setLatitude] = useState<number>(0);
@@ -38,7 +23,7 @@ const SecondStep: React.FC = () => {
 
   const { navigate } = useNavigation();
 
-  const { params } = useRoute<RouteProp<ParamList, 'params'>>();
+  const { params } = useRoute<RouteProp<ParamList, 'Location'>>();
   const { name, CPF, whatsapp } = params;
 
   const getCurrentPosition = () => {

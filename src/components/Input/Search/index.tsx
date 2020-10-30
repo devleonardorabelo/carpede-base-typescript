@@ -20,7 +20,7 @@ const Search: React.FC<Props> = ({ placeholder, onChangeText, action }) => (
       onSubmitEditing={action}
     />
     <TouchableOpacity onPress={action}>
-      <FE name="search" size={28} color={THEME.color2} />
+      <FE name="search" size={28} color={THEME.background3} />
     </TouchableOpacity>
   </View>
 );

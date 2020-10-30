@@ -56,15 +56,15 @@ const AppRoutes: React.FC = () => {
       <AppStack.Screen
         name="Home"
         component={Home}
-        options={() => ({
+        options={({ navigation }) => ({
           headerLeft: () => (
             <TouchableOpacity onPress={signOut}>
-              <MI name="logout" size={28} color={THEME.color2} />
+              <MI name="logout" size={28} color={THEME.background3} />
             </TouchableOpacity>
           ),
           headerRight: () => (
-            <TouchableOpacity onPress={signOut}>
-              <MI name="face-profile" size={28} color={THEME.color2} />
+            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+              <MI name="face-profile" size={28} color={THEME.background3} />
             </TouchableOpacity>
           ),
         })}
@@ -76,7 +76,7 @@ const AppRoutes: React.FC = () => {
           title: 'DETALHES',
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <MI name="arrow-left" size={28} color={THEME.color2} />
+              <MI name="arrow-left" size={28} color={THEME.background3} />
             </TouchableOpacity>
           ),
         })}
@@ -88,7 +88,7 @@ const AppRoutes: React.FC = () => {
           title: 'CATEGORIA',
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <MI name="arrow-left" size={28} color={THEME.color2} />
+              <MI name="arrow-left" size={28} color={THEME.background3} />
             </TouchableOpacity>
           ),
         })}
@@ -100,7 +100,7 @@ const AppRoutes: React.FC = () => {
           title: 'MEU PERFIL',
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <MI name="arrow-left" size={28} color={THEME.color2} />
+              <MI name="arrow-left" size={28} color={THEME.background3} />
             </TouchableOpacity>
           ),
         })}

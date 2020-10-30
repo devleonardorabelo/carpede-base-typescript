@@ -18,6 +18,7 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   keyboardType?: KeyboardTypeOptions;
   multiline?: boolean;
+  defaultValue?: string;
 }
 
 const TextInput: React.FC<Props> = ({
@@ -28,6 +29,7 @@ const TextInput: React.FC<Props> = ({
   style,
   keyboardType,
   multiline,
+  defaultValue,
 }) => (
   <View style={[styles.textInputBox, style]}>
     <Text style={styles.labelInput}>{label}</Text>
@@ -38,6 +40,7 @@ const TextInput: React.FC<Props> = ({
       onSubmitEditing={onSubmitEditing}
       keyboardType={keyboardType || 'default'}
       multiline={multiline}
+      defaultValue={defaultValue}
     />
   </View>
 );
