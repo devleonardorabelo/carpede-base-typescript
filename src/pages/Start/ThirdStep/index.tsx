@@ -4,19 +4,11 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
 import AuthContext from '../../../contexts/auth';
 import RequestBase from '../../../services/api';
+import { ParamList } from '../../../types';
 
 import styles from '../styles';
-import { CircularButton, TextInput } from '../../../components';
 
-type ParamList = {
-  params: {
-    name: string;
-    CPF: string;
-    whatsapp: string;
-    latitude: string;
-    longitude: string;
-  };
-};
+import { CircularButton, TextInput } from '../../../components';
 
 const ThirdStep: React.FC = () => {
   const [address, setAddress] = useState<string>('');
@@ -26,7 +18,7 @@ const ThirdStep: React.FC = () => {
   const [deviceToken, setDeviceToken] = useState<string>('');
   const [done, setDone] = useState<boolean>(false);
 
-  const { params } = useRoute<RouteProp<ParamList, 'params'>>();
+  const { params } = useRoute<RouteProp<ParamList, 'ThirdStep'>>();
   const { name, CPF, whatsapp, latitude, longitude } = params;
   const { signUp } = useContext(AuthContext);
 

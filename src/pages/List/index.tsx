@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+import { Text, SafeAreaView } from 'react-native';
 import { useRoute, RouteProp } from '@react-navigation/native';
-import { ParamList } from '../../types';
 import ShopContext from '../../contexts/shop';
+import { ParamList } from '../../types';
 
 import styles from './styles';
+
 import { VerticalProductList } from '../../components';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 type ScreenRouteProp = RouteProp<ParamList, 'List'>;
 

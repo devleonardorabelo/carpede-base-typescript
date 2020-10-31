@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { ScrollView, StatusBar, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import ShopContext from '../../contexts/shop';
 import AuthContext from '../../contexts/auth';
 import { THEME } from '../../constants';
@@ -7,7 +8,6 @@ import { THEME } from '../../constants';
 import styles from './styles';
 
 import { SearchInput, CategoryList, ProductList } from '../../components';
-import { useNavigation } from '@react-navigation/native';
 
 const Home: React.FC = () => {
   const { categories, onSale, bestSellers } = useContext(ShopContext);

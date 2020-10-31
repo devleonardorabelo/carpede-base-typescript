@@ -5,6 +5,7 @@ import React, { useContext } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AuthContext from '../contexts/auth';
+import { OrderProvider } from '../contexts/order';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { THEME } from '../constants';
@@ -20,92 +21,94 @@ const AppRoutes: React.FC = () => {
   const { signOut } = useContext(AuthContext);
 
   return (
-    <AppStack.Navigator
-      screenOptions={{
-        title: ' ',
-        headerStyle: {
-          elevation: 0,
-        },
-        headerLeftContainerStyle: {
-          padding: 8,
-        },
-        headerRightContainerStyle: {
-          padding: 8,
-        },
-        headerTitleStyle: {
-          color: THEME.color2,
-          fontFamily: 'Montserrat SemiBold',
-          fontSize: 16,
-        },
-        headerTitleAlign: 'center',
-        cardStyleInterpolator: ({ current, layouts }) => {
-          return {
-            cardStyle: {
-              transform: [
-                {
-                  translateX: current.progress.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [layouts.screen.width, 0],
-                  }),
-                },
-              ],
-            },
-          };
-        },
-      }}>
-      <AppStack.Screen
-        name="Home"
-        component={Home}
-        options={({ navigation }) => ({
-          headerLeft: () => (
-            <TouchableOpacity onPress={signOut}>
-              <MI name="logout" size={28} color={THEME.background3} />
-            </TouchableOpacity>
-          ),
-          headerRight: () => (
-            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-              <MI name="face-profile" size={28} color={THEME.background3} />
-            </TouchableOpacity>
-          ),
-        })}
-      />
-      <AppStack.Screen
-        name="View"
-        component={View}
-        options={({ navigation }) => ({
-          title: 'DETALHES',
-          headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <MI name="arrow-left" size={28} color={THEME.background3} />
-            </TouchableOpacity>
-          ),
-        })}
-      />
-      <AppStack.Screen
-        name="List"
-        component={List}
-        options={({ navigation }) => ({
-          title: 'CATEGORIA',
-          headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <MI name="arrow-left" size={28} color={THEME.background3} />
-            </TouchableOpacity>
-          ),
-        })}
-      />
-      <AppStack.Screen
-        name="Profile"
-        component={Profile}
-        options={({ navigation }) => ({
-          title: 'MEU PERFIL',
-          headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <MI name="arrow-left" size={28} color={THEME.background3} />
-            </TouchableOpacity>
-          ),
-        })}
-      />
-    </AppStack.Navigator>
+    <OrderProvider>
+      <AppStack.Navigator
+        screenOptions={{
+          title: ' ',
+          headerStyle: {
+            elevation: 0,
+          },
+          headerLeftContainerStyle: {
+            padding: 8,
+          },
+          headerRightContainerStyle: {
+            padding: 8,
+          },
+          headerTitleStyle: {
+            color: THEME.color2,
+            fontFamily: 'Montserrat SemiBold',
+            fontSize: 16,
+          },
+          headerTitleAlign: 'center',
+          cardStyleInterpolator: ({ current, layouts }) => {
+            return {
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            };
+          },
+        }}>
+        <AppStack.Screen
+          name="Home"
+          component={Home}
+          options={({ navigation }) => ({
+            headerLeft: () => (
+              <TouchableOpacity onPress={signOut}>
+                <MI name="logout" size={28} color={THEME.background3} />
+              </TouchableOpacity>
+            ),
+            headerRight: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                <MI name="face-profile" size={28} color={THEME.background3} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <AppStack.Screen
+          name="View"
+          component={View}
+          options={({ navigation }) => ({
+            title: 'DETALHES',
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <MI name="arrow-left" size={28} color={THEME.background3} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <AppStack.Screen
+          name="List"
+          component={List}
+          options={({ navigation }) => ({
+            title: 'CATEGORIA',
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <MI name="arrow-left" size={28} color={THEME.background3} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <AppStack.Screen
+          name="Profile"
+          component={Profile}
+          options={({ navigation }) => ({
+            title: 'MEU PERFIL',
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <MI name="arrow-left" size={28} color={THEME.background3} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+      </AppStack.Navigator>
+    </OrderProvider>
   );
 };
 

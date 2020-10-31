@@ -3,22 +3,17 @@ import { Text, SafeAreaView, View } from 'react-native';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
-import { ICurrentPosition, ParamList } from '../../../types';
 import FA from 'react-native-vector-icons/FontAwesome5';
+import { ParamList } from '../../../types';
 import { THEME } from '../../../constants';
 
 import styles from '../styles';
+
 import { CircularButton } from '../../../components';
 
 const SecondStep: React.FC = () => {
   const [latitude, setLatitude] = useState<number>(0);
   const [longitude, setLongitude] = useState<number>(0);
-  const [currentPosition, setCurrentPosition] = useState<ICurrentPosition>({
-    latitude: 0,
-    longitude: 0,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  });
   const [markerDone, setMarkerDone] = useState<boolean>(false);
 
   const { navigate } = useNavigation();
@@ -31,12 +26,6 @@ const SecondStep: React.FC = () => {
       (location) => {
         setLatitude(location.coords.latitude);
         setLongitude(location.coords.longitude);
-        setCurrentPosition({
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        });
       },
       () => getCurrentPosition(),
       { timeout: 20000 },
@@ -49,7 +38,15 @@ const SecondStep: React.FC = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#123456' }}>
-      <MapView style={{ flex: 1 }} initialRegion={currentPosition} minZoomLevel={15}>
+      <MapView
+        style={{ flex: 1 }}
+        initialRegion={{
+          latitude,
+          longitude,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        minZoomLevel={15}>
         <Marker
           coordinate={{ latitude, longitude }}
           onDragEnd={(e) => {

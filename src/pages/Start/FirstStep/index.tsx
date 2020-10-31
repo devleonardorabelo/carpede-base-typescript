@@ -9,10 +9,11 @@ import {
   StatusBar,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { THEME } from '../../../constants';
 
 import styles from '../styles';
+
 import { CircularButton, TextInput, TextInputMask } from '../../../components';
-import { THEME } from '../../../constants';
 
 const FirstStep: React.FC = () => {
   const [name, setName] = useState<string>('');

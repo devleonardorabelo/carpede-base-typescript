@@ -5,13 +5,13 @@ import { THEME } from '../../../constants';
 
 import styles from './styles';
 
-interface Props {
+type InputProps = {
   placeholder: string;
   onChangeText: (e: any) => void;
   action: () => void;
-}
+};
 
-const Search: React.FC<Props> = ({ placeholder, onChangeText, action }) => (
+const Search: React.FC<InputProps> = ({ placeholder, onChangeText, action }) => (
   <View style={styles.searchBox}>
     <TextInput
       style={styles.searchInput}

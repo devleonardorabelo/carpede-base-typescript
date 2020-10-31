@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
 import RequestBase from '../services/api';
-import { Shop, Product, Category, ProductSearch } from '../types';
+import { TShopContext, Product, Category, ProductSearch } from '../types';
 
-const ShopContext = createContext<Shop>({
+const ShopContext = createContext<TShopContext>({
   products: [],
   categories: [],
   onSale: [],

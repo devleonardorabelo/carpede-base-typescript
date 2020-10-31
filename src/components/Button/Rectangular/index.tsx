@@ -3,13 +3,13 @@ import { TouchableOpacity, Text } from 'react-native';
 
 import styles from './styles';
 
-interface Props {
+type ButtonProps = {
   title: JSX.Element | string;
   action: () => void;
   disabled?: boolean;
-}
+};
 
-const Rectangular: React.FC<Props> = ({ title, action, disabled }) => (
+const Rectangular: React.FC<ButtonProps> = ({ title, action, disabled }) => (
   <TouchableOpacity
     onPress={action}
     style={[styles.rectangularButton, disabled && styles.rectangularButtonDisabled]}

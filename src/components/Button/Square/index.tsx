@@ -5,14 +5,14 @@ import { THEME } from '../../../constants';
 
 import styles from './styles';
 
-interface Props {
+type ButtonProps = {
   icon: string;
   style?: StyleProp<ViewStyle>;
   action: () => void;
   disabled?: boolean;
-}
+};
 
-const Square: React.FC<Props> = ({ icon, style, action, disabled }) => (
+const Square: React.FC<ButtonProps> = ({ icon, style, action, disabled }) => (
   <TouchableOpacity
     onPress={action}
     style={[styles.squareButton, disabled && styles.squareButtonDisabled, style]}

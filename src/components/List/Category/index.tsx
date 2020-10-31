@@ -1,17 +1,17 @@
 import React from 'react';
 import { Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Category } from '../../../types';
 import Skeleton from 'react-native-skeleton-content-nonexpo';
-
-import styles from './styles';
+import { Category } from '../../../types';
 import { THEME } from '../../../constants';
 
-interface SlideProps {
+import styles from './styles';
+
+type SlideProps = {
   data: Category[];
   product?: boolean;
   title: string;
-}
+};
 
 const Item: React.FC<Category> = ({ _id, image, name }: Category) => {
   const { navigate } = useNavigation();

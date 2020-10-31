@@ -3,19 +3,18 @@ import React from 'react';
 import { Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
+import Skeleton from 'react-native-skeleton-content-nonexpo';
 import { Product } from '../../../types';
 import { THEME } from '../../../constants';
-
-import Skeleton from 'react-native-skeleton-content-nonexpo';
 
 import styles from './styles';
 
 import imgChef from '../../../assets/images/chef.png';
 
-interface SlideProps {
+type SlideProps = {
   data: Product[];
   loading: boolean;
-}
+};
 
 const Item: React.FC<Product> = ({
   _id,

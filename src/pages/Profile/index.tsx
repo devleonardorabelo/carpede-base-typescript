@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { View, ScrollView, Text, TouchableOpacity, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-import { ICurrentPosition } from '../../types';
-import { THEME } from '../../constants';
 import AuthContext from '../../contexts/auth';
 import FA from 'react-native-vector-icons/FontAwesome5';
+import { THEME } from '../../constants';
 
 import styles from './styles';
 
@@ -24,12 +23,6 @@ const Profile: React.FC = () => {
   const [number, setNumber] = useState<number>(customer?.number || 0);
   const [latitude, setLatitude] = useState<number>(customer?.latitude || 0);
   const [longitude, setLongitude] = useState<number>(customer?.longitude || 0);
-  const [currentPosition, setCurrentPosition] = useState<ICurrentPosition>({
-    latitude: customer?.latitude || 0,
-    longitude: customer?.longitude || 0,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  });
   const [markerDone, setMarkerDone] = useState<boolean>(false);
   const [done, setDone] = useState<boolean>(false);
   const [tab, setTab] = useState<number>(1);
@@ -147,7 +140,12 @@ const Profile: React.FC = () => {
           <>
             <MapView
               style={{ flex: 1, height: Dimensions.get('screen').height / 2.5 }}
-              initialRegion={currentPosition}
+              initialRegion={{
+                latitude,
+                longitude,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+              }}
               minZoomLevel={15}>
               <Marker
                 coordinate={{ latitude, longitude }}

@@ -4,15 +4,15 @@ import { useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
 import Skeleton from 'react-native-skeleton-content-nonexpo';
 import { Product } from '../../../types';
-
-import styles from './styles';
 import { THEME } from '../../../constants';
 
-interface SlideProps {
+import styles from './styles';
+
+type SlideProps = {
   data: Product[];
   product?: boolean;
   title: string;
-}
+};
 
 const Item: React.FC<Product> = ({
   _id,

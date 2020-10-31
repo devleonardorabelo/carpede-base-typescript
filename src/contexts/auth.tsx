@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import loadCostumer from '../services/auth';
-import { ContextProvider, Customer } from '../types';
+import { TAuthContext, Customer } from '../types';
 
-const AuthContext = createContext<ContextProvider>({
+const AuthContext = createContext<TAuthContext>({
   signed: false,
   customer: null,
   signUp: () => {},

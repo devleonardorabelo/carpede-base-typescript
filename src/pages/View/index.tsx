@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Image, ScrollView, Text, View } from 'react-native';
 import { useRoute, RouteProp } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
-import { ParamList } from '../../types';
+import { OrderProduct, ParamList } from '../../types';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
+import OrderContext from '../../contexts/order';
 
 import styles from './styles';
 
@@ -12,8 +13,9 @@ import { RectangularButton, SquareButton, TextInput } from '../../components';
 type ScreenRouteProp = RouteProp<ParamList, 'View'>;
 
 const ViewProduct: React.FC = () => {
+  const { products, addProduct } = useContext(OrderContext);
   const {
-    params: { image, name, description, onSale, price, onSaleValue },
+    params: { _id, image, name, description, onSale, price, onSaleValue },
   } = useRoute<ScreenRouteProp>();
 
   const [quantity, setQuantity] = useState<number>(1);
@@ -76,7 +78,23 @@ const ViewProduct: React.FC = () => {
               </>
             )
           }
-          action={() => {}}
+          action={() => {
+            const model: OrderProduct = {
+              product: {
+                _id,
+                id: Math.random().toString(36).substr(2, 10),
+                image,
+                name,
+                description,
+                onSale: Boolean(onSale),
+                price,
+                onSaleValue,
+              },
+              quantity,
+              comments,
+            };
+            addProduct(model);
+          }}
         />
         <SquareButton
           icon="plus"

@@ -10,7 +10,7 @@ import {
 
 import styles from './styles';
 
-interface Props {
+type InputProps = {
   label: string | JSX.Element;
   placeholder?: string;
   onChangeText: (e: string) => void;
@@ -19,9 +19,9 @@ interface Props {
   keyboardType?: KeyboardTypeOptions;
   multiline?: boolean;
   defaultValue?: string;
-}
+};
 
-const TextInput: React.FC<Props> = ({
+const TextInput: React.FC<InputProps> = ({
   label,
   placeholder,
   onChangeText,
