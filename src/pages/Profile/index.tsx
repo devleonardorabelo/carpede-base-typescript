@@ -60,7 +60,7 @@ const Profile: React.FC = () => {
   }, [name, CPF, whatsapp]);
   return (
     <ScrollView style={styles.section}>
-      <Text style={[styles.title, { paddingHorizontal: 16 }]}>Sobre você</Text>
+      <Text style={[styles.title, { paddingHorizontal: 16, marginTop: 16 }]}>Sobre você</Text>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <View style={styles.profileNavigation}>
           <TouchableOpacity

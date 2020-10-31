@@ -28,5 +28,8 @@ export default StyleSheet.create({
     resizeMode: 'cover',
     borderRadius: 8,
   },
-  illustration: THEME.illustration,
+  illustration: {
+    ...THEME.illustration,
+    resizeMode: 'center',
+  },
 });

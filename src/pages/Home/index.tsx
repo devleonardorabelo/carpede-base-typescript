@@ -24,7 +24,9 @@ const Home: React.FC = () => {
           <Text style={styles.title}>Olá, {customer?.name} </Text>
           <Text style={styles.subtitle}>Tá com Fome de quê?</Text>
           <SearchInput
-            action={() => navigate('List', { filter })}
+            action={() => {
+              if (filter.length > 0) navigate('List', { filter });
+            }}
             onChangeText={(e) => setFilter(e)}
             placeholder="Ex: Hamburger"
           />

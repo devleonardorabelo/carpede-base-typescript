@@ -45,7 +45,6 @@ export const THEME = {
   illustration: {
     width: '100%',
     maxHeight: Dimensions.get('screen').width * 0.8,
-    resizeMode: 'center',
     marginVertical: 20,
   },
 };

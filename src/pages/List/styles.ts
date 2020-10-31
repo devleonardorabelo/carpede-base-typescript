@@ -4,10 +4,11 @@ import { THEME } from '../../constants';
 export default StyleSheet.create({
   section: {
     backgroundColor: THEME.background1,
-    minHeight: '100%',
+    flex: 1,
   },
   container: {
     padding: 16,
+    paddingBottom: 0,
   },
   subtitle: {
     ...THEME.subtitle,

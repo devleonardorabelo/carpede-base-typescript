@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import { useRoute, RouteProp } from '@react-navigation/native';
 import { ParamList } from '../../types';
 import ShopContext from '../../contexts/shop';
 
 import styles from './styles';
 import { VerticalProductList } from '../../components';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type ScreenRouteProp = RouteProp<ParamList, 'List'>;
 
@@ -28,17 +29,19 @@ const List: React.FC = () => {
   }, []);
 
   return (
-    <SafeAreaView style={[styles.section, styles.container]}>
-      {name ? (
-        <Text style={styles.title}>{name}</Text>
-      ) : (
-        <>
-          <Text style={styles.subtitle}>Resultados para:</Text>
-          <Text style={styles.title}>{filter}</Text>
-        </>
-      )}
-      <VerticalProductList data={products} loading={loading} />
-    </SafeAreaView>
+    <>
+      <SafeAreaView style={[styles.section, styles.container]}>
+        {name ? (
+          <Text style={styles.title}>{name}</Text>
+        ) : (
+          <>
+            <Text style={styles.subtitle}>Resultados para:</Text>
+            <Text style={styles.title}>{filter}</Text>
+          </>
+        )}
+        <VerticalProductList data={products} loading={loading} />
+      </SafeAreaView>
+    </>
   );
 };
 
