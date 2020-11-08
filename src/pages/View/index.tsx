@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Image, ScrollView, Text, View } from 'react-native';
-import { useRoute, RouteProp } from '@react-navigation/native';
+import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
 import { OrderProduct, ParamList } from '../../types';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -13,10 +13,11 @@ import { RectangularButton, SquareButton, TextInput } from '../../components';
 type ScreenRouteProp = RouteProp<ParamList, 'View'>;
 
 const ViewProduct: React.FC = () => {
-  const { products, addProduct } = useContext(OrderContext);
+  const { addProduct } = useContext(OrderContext);
   const {
     params: { _id, image, name, description, onSale, price, onSaleValue },
   } = useRoute<ScreenRouteProp>();
+  const { goBack } = useNavigation();
 
   const [quantity, setQuantity] = useState<number>(1);
   const [comments, setComments] = useState<string>('');
@@ -50,7 +51,7 @@ const ViewProduct: React.FC = () => {
               </>
             }
             placeholder="Ex: Sem cebola, molho à parte"
-            onChangeText={() => {}}
+            onChangeText={(e) => setComments(e)}
             multiline
           />
         </View>
@@ -94,6 +95,7 @@ const ViewProduct: React.FC = () => {
               comments,
             };
             addProduct(model);
+            goBack();
           }}
         />
         <SquareButton
