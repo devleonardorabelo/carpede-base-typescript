@@ -3,7 +3,8 @@ import { Dimensions } from 'react-native';
 export const API_DOMAIN = 'https://batch1.carpede.com';
 export const STORE_ID = '5ef75a9500c9c90017395b20';
 export const THEME = {
-  background1: '#FFFFFF',
+  menuColor: '#FFFFFF',
+  background1: '#FCFCFC',
   background2: '#F2F2F2',
   background3: '#EF233C',
   background4: '#D80032',

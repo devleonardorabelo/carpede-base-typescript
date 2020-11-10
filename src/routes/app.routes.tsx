@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import React, { useContext } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AuthContext from '../contexts/auth';
 import { OrderProvider } from '../contexts/order';
@@ -14,6 +14,7 @@ import Home from '../pages/Home';
 import View from '../pages/View';
 import List from '../pages/List';
 import Profile from '../pages/Profile';
+import Checkout from '../pages/Checkout';
 
 const AppStack = createStackNavigator();
 
@@ -25,8 +26,12 @@ const AppRoutes: React.FC = () => {
       <AppStack.Navigator
         screenOptions={{
           title: ' ',
+          cardStyle: {
+            elevation: 999,
+          },
           headerStyle: {
             elevation: 0,
+            borderBottomWidth: StyleSheet.hairlineWidth,
           },
           headerLeftContainerStyle: {
             padding: 8,
@@ -61,12 +66,12 @@ const AppRoutes: React.FC = () => {
           options={({ navigation }) => ({
             headerLeft: () => (
               <TouchableOpacity onPress={signOut}>
-                <MI name="logout" size={28} color={THEME.background3} />
+                <MI name="logout" size={28} color={THEME.background4} />
               </TouchableOpacity>
             ),
             headerRight: () => (
               <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                <MI name="face-profile" size={28} color={THEME.background3} />
+                <MI name="face-profile" size={28} color={THEME.background4} />
               </TouchableOpacity>
             ),
           })}
@@ -78,7 +83,7 @@ const AppRoutes: React.FC = () => {
             title: 'DETALHES',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MI name="arrow-left" size={28} color={THEME.background3} />
+                <MI name="arrow-left" size={28} color={THEME.background4} />
               </TouchableOpacity>
             ),
           })}
@@ -90,7 +95,7 @@ const AppRoutes: React.FC = () => {
             title: 'CATEGORIA',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MI name="arrow-left" size={28} color={THEME.background3} />
+                <MI name="arrow-left" size={28} color={THEME.background4} />
               </TouchableOpacity>
             ),
           })}
@@ -102,9 +107,40 @@ const AppRoutes: React.FC = () => {
             title: 'MEU PERFIL',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MI name="arrow-left" size={28} color={THEME.background3} />
+                <MI name="arrow-left" size={28} color={THEME.background4} />
               </TouchableOpacity>
             ),
+          })}
+        />
+        <AppStack.Screen
+          name="Checkout"
+          component={Checkout}
+          options={({ navigation }) => ({
+            title: 'PEDIDO',
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <MI name="arrow-down" size={28} color={THEME.background4} />
+              </TouchableOpacity>
+            ),
+            headerRight: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <MI name="delete-outline" size={28} color={THEME.background4} />
+              </TouchableOpacity>
+            ),
+            cardStyleInterpolator: ({ current, layouts }) => {
+              return {
+                cardStyle: {
+                  transform: [
+                    {
+                      translateY: current.progress.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [layouts.screen.height, 0],
+                      }),
+                    },
+                  ],
+                },
+              };
+            },
           })}
         />
       </AppStack.Navigator>

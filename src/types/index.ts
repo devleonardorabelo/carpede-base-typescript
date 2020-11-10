@@ -76,9 +76,11 @@ export type TShopContext = {
 
 export type TOrderContext = {
   products: OrderProduct[];
+  totalProducts: number;
   addProduct: (product: OrderProduct) => void;
   editProduct: (product: OrderProduct) => void;
   removeProduct: (product: OrderProduct) => void;
+  resetOrder: () => void;
 };
 
 export type Customer = {

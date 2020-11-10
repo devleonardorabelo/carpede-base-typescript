@@ -3,13 +3,16 @@ import { TOrderContext, OrderProduct } from '../types';
 
 export const OrderContext = createContext<TOrderContext>({
   products: [],
+  totalProducts: 0,
   addProduct: () => {},
   editProduct: () => {},
   removeProduct: () => {},
+  resetOrder: () => {},
 });
 
 export const OrderProvider: React.FC = ({ children }) => {
   const [products, setProducts] = useState<OrderProduct[]>([]);
+  const [totalProducts, setTotalProducts] = useState<number>(0);
 
   const addProduct = (item: OrderProduct) => setProducts([...products, item]);
 
@@ -25,17 +28,29 @@ export const OrderProvider: React.FC = ({ children }) => {
     setProducts([...products]);
   };
 
+  const calculateTotalProducts = () => {
+    const calculate = products.reduce(
+      (total, each) => each.product.onSaleValue * each.quantity + total,
+      0,
+    );
+    setTotalProducts(calculate);
+  };
+
+  const resetOrder = () => setProducts([]);
+
   useEffect(() => {
-    console.log(products);
+    calculateTotalProducts();
   }, [products]);
 
   return (
     <OrderContext.Provider
       value={{
         products,
+        totalProducts,
         addProduct,
         editProduct,
         removeProduct,
+        resetOrder,
       }}>
       {children}
     </OrderContext.Provider>
