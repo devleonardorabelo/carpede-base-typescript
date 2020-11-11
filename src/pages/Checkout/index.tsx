@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { ScrollView, Text } from 'react-native';
+import { SafeAreaView, Text } from 'react-native';
+import OrderContext from '../../contexts/order';
 import Gesture from 'react-native-swipe-gestures';
+
 import styles from './styles';
+import { OrderList } from '../../components';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Checkout: React.FC = () => {
   const { goBack } = useNavigation();
+  const { products } = useContext(OrderContext);
+
+  console.log(products);
 
   return (
-    <ScrollView style={styles.section}>
+    <SafeAreaView style={styles.section}>
       <Gesture style={{ height: 400 }} onSwipeDown={() => goBack()}>
-        <Text>Teste</Text>
+        <OrderList data={products} />
       </Gesture>
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 
