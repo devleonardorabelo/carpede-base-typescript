@@ -5,7 +5,7 @@ import React, { useContext } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AuthContext from '../contexts/auth';
-import { OrderProvider } from '../contexts/order';
+import OrderContext, { OrderProvider } from '../contexts/order';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { THEME } from '../constants';
@@ -20,6 +20,7 @@ const AppStack = createStackNavigator();
 
 const AppRoutes: React.FC = () => {
   const { signOut } = useContext(AuthContext);
+  const { resetOrder } = useContext(OrderContext);
 
   return (
     <OrderProvider>
@@ -120,11 +121,6 @@ const AppRoutes: React.FC = () => {
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
                 <MI name="arrow-down" size={28} color={THEME.background4} />
-              </TouchableOpacity>
-            ),
-            headerRight: () => (
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MI name="delete-outline" size={28} color={THEME.background4} />
               </TouchableOpacity>
             ),
             cardStyleInterpolator: ({ current, layouts }) => {

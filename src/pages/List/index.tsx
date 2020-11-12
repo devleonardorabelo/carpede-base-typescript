@@ -17,8 +17,6 @@ const List: React.FC = () => {
     params: { _id, name, filter },
   } = useRoute<ScreenRouteProp>();
 
-  console.log(filter);
-
   const loadProductList = async () => {
     await loadProducts({ category: { _id, name }, page: 1, filter });
     setLoading(false);
