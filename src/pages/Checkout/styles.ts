@@ -13,9 +13,6 @@ export default StyleSheet.create({
   lightText: {
     ...THEME.lightText,
   },
-  clearText: {
-    color: THEME.color3,
-  },
   price: {
     color: THEME.color5,
   },

@@ -16,12 +16,12 @@ export default StyleSheet.create({
   },
   orderItem: {
     flexDirection: 'row',
+    marginBottom: 16,
   },
   orderItemImage: {
     width: Dimensions.get('screen').width / 5,
     height: Dimensions.get('screen').width / 5,
     borderRadius: 8,
-    marginBottom: 8,
     marginRight: 16,
   },
   orderItemBody: {

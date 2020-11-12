@@ -72,6 +72,7 @@ export type TShopContext = {
   onSale: Product[];
   bestSellers: Product[];
   loadProducts: ({ category, page, filter }: ProductSearch | any) => Promise<void> | any;
+  storeInfo: StoreInfo | null;
 };
 
 export type TOrderContext = {
@@ -127,4 +128,18 @@ export type OrderProduct = {
   product: Product;
   quantity: number;
   comments: string;
+};
+
+export type StoreInfo = {
+  averageDeliveryTime: string;
+  fees: {
+    delivery: number;
+    payment: number;
+  };
+  operation: {
+    closure: string;
+    opening: string;
+  };
+  phone: string;
+  whatsapp: string;
 };

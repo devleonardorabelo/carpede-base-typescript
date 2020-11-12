@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Image, SafeAreaView, Text, View } from 'react-native';
 import OrderContext from '../../contexts/order';
 import AuthContext from '../../contexts/auth';
+import ShopContext from '../../contexts/shop';
 import Gesture from 'react-native-swipe-gestures';
 import { TextMask } from 'react-native-masked-text';
 
@@ -14,8 +15,9 @@ import imgMap from '../../assets/images/map.png';
 
 const Checkout: React.FC = () => {
   const { goBack } = useNavigation();
-  const { products, resetOrder } = useContext(OrderContext);
+  const { products, resetOrder, totalProducts } = useContext(OrderContext);
   const { customer } = useContext(AuthContext);
+  const { storeInfo } = useContext(ShopContext);
 
   return (
     <SafeAreaView style={styles.section}>
@@ -29,20 +31,36 @@ const Checkout: React.FC = () => {
               <Text style={styles.lightText}>
                 {customer?.address} {customer?.complement} {customer?.number}
               </Text>
+              <Text style={styles.boldText}>{storeInfo?.averageDeliveryTime} minutos</Text>
             </View>
           </View>
         </View>
         <View style={[styles.orderBottomTab, styles.container]}>
           <View style={styles.orderBottomTabItem}>
             <Text style={styles.text}>Total dos itens: </Text>
-            <TextMask style={[styles.subtitle, styles.price]} value={String(55)} type={'money'} />
+            <TextMask
+              style={[styles.subtitle, styles.price]}
+              value={String(totalProducts)}
+              type={'money'}
+            />
           </View>
           <View style={[styles.orderBottomTabItem, { marginBottom: 24 }]}>
             <Text style={styles.text}>Taxa de entrega: </Text>
-            <TextMask style={[styles.boldText]} value={String(55)} type={'money'} />
+            <TextMask
+              style={[styles.boldText]}
+              value={String(storeInfo?.fees.delivery)}
+              type={'money'}
+            />
           </View>
           <View style={{ flexDirection: 'row' }}>
-            <SquareButton style={{ marginRight: 8 }} action={() => {}} icon="trash-can-outline" />
+            <SquareButton
+              style={{ marginRight: 8 }}
+              action={() => {
+                resetOrder();
+                goBack();
+              }}
+              icon="trash-can-outline"
+            />
             <RectangularButton action={() => {}} title="Ir para pagamento" />
           </View>
         </View>

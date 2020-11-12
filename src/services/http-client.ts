@@ -6,13 +6,9 @@ import { HttpClient, HttpRequest, HttpResponse } from '../types';
 
 class AxiosHttpClient implements HttpClient {
   url: string;
-
   method: Method;
-
   data: any;
-
   headers: any;
-
   params: any;
 
   constructor(data: HttpRequest) {
