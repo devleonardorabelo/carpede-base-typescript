@@ -3,22 +3,26 @@ import { THEME } from '../../../constants';
 
 export default StyleSheet.create({
   rectangularButton: {
-    backgroundColor: THEME.background4,
+    backgroundColor: THEME.button.color,
     justifyContent: 'center',
     alignItems: 'center',
     height: 48,
-    borderRadius: 8,
+    borderRadius: THEME.borderRadius,
     flexGrow: 1,
   },
   rectangularButtonDisabled: {
-    backgroundColor: THEME.background2,
+    backgroundColor: THEME.button.disabledColor,
     justifyContent: 'center',
     alignItems: 'center',
     height: 48,
-    borderRadius: 8,
+    borderRadius: THEME.borderRadius,
   },
   retangularButtonText: {
     ...THEME.text,
-    color: THEME.background1,
+    color: THEME.button.contentColor,
+  },
+  retangularButtonTextDisabled: {
+    ...THEME.text,
+    color: THEME.button.contentColorDisabled,
   },
 });

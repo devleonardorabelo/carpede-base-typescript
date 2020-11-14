@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { THEME } from '../../../constants';
 
 export default StyleSheet.create({
@@ -19,9 +19,9 @@ export default StyleSheet.create({
     marginBottom: 16,
   },
   orderItemImage: {
-    width: Dimensions.get('screen').width / 5,
-    height: Dimensions.get('screen').width / 5,
-    borderRadius: 8,
+    width: THEME.product.order.width,
+    height: THEME.product.order.width,
+    borderRadius: THEME.borderRadius,
     marginRight: 16,
   },
   orderItemBody: {

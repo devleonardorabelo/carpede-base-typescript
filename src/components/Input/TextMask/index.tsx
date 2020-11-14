@@ -1,18 +1,17 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { TextInputMask as TextMask, TextInputMaskTypeProp } from 'react-native-masked-text';
+import { TextInputMask as TextMask } from 'react-native-masked-text';
+import { MaskInputProps } from '../../../types/components';
 
 import styles from './styles';
 
-type InputProps = {
-  label: string;
-  placeholder?: string;
-  onChangeText: (formatted: string | undefined, raw: string | undefined) => void;
-  value: string;
-  type: TextInputMaskTypeProp;
-};
-
-const TextInputMask: React.FC<InputProps> = ({ label, placeholder, onChangeText, value, type }) => (
+const TextInputMask: React.FC<MaskInputProps> = ({
+  label,
+  placeholder,
+  onChangeText,
+  value,
+  type,
+}) => (
   <View style={styles.textInputBox}>
     <Text style={styles.labelInput}>{label}</Text>
     <TextMask

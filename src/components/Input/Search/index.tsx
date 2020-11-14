@@ -2,16 +2,11 @@ import React from 'react';
 import { View, TextInput, TouchableOpacity } from 'react-native';
 import FE from 'react-native-vector-icons/Feather';
 import { THEME } from '../../../constants';
+import { TextInputProps } from '../../../types/components';
 
 import styles from './styles';
 
-type InputProps = {
-  placeholder: string;
-  onChangeText: (e: any) => void;
-  action: () => void;
-};
-
-const Search: React.FC<InputProps> = ({ placeholder, onChangeText, action }) => (
+const Search: React.FC<TextInputProps> = ({ placeholder, onChangeText, action }) => (
   <View style={styles.searchBox}>
     <TextInput
       style={styles.searchInput}
@@ -20,7 +15,7 @@ const Search: React.FC<InputProps> = ({ placeholder, onChangeText, action }) => 
       onSubmitEditing={action}
     />
     <TouchableOpacity onPress={action}>
-      <FE name="search" size={28} color={THEME.background3} />
+      <FE name="search" size={THEME.button.iconSize} color={THEME.button.color} />
     </TouchableOpacity>
   </View>
 );

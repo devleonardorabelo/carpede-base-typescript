@@ -3,14 +3,9 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { TextMask } from 'react-native-masked-text';
 import Gesture from 'react-native-swipe-gestures';
 import FE from 'react-native-vector-icons/Feather';
+import { OrderFooterProps } from '../../../types/components';
 
 import styles from './styles';
-
-type OrderFooterProps = {
-  productLength: number;
-  action: () => void;
-  totalOrder: number;
-};
 
 const OrderFooter: React.FC<OrderFooterProps> = ({ productLength, action, totalOrder }) => (
   <Gesture onSwipeUp={action}>

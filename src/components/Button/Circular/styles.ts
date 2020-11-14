@@ -2,16 +2,16 @@ import { StyleSheet } from 'react-native';
 import { THEME } from '../../../constants';
 
 export default StyleSheet.create({
-  iconButton: {
+  iconCircularButton: {
     justifyContent: 'center',
     alignItems: 'center',
     height: 72,
     width: 72,
     borderRadius: 100,
     marginVertical: 16,
-    backgroundColor: THEME.background3,
+    backgroundColor: THEME.button.color,
   },
-  iconButtonDisabled: {
-    backgroundColor: THEME.background2,
+  iconCircularButtonDisabled: {
+    backgroundColor: THEME.button.disabledColor,
   },
 });

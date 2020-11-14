@@ -1,27 +1,10 @@
 import React from 'react';
-import {
-  View,
-  TextInput as TI,
-  Text,
-  KeyboardTypeOptions,
-  StyleProp,
-  ViewStyle,
-} from 'react-native';
+import { View, TextInput as TI, Text } from 'react-native';
+import { TextInputProps } from '../../../types/components';
 
 import styles from './styles';
 
-type InputProps = {
-  label: string | JSX.Element;
-  placeholder?: string;
-  onChangeText: (e: string) => void;
-  onSubmitEditing?: () => void;
-  style?: StyleProp<ViewStyle>;
-  keyboardType?: KeyboardTypeOptions;
-  multiline?: boolean;
-  defaultValue?: string;
-};
-
-const TextInput: React.FC<InputProps> = ({
+const TextInput: React.FC<TextInputProps> = ({
   label,
   placeholder,
   onChangeText,

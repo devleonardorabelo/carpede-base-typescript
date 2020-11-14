@@ -2,16 +2,11 @@ import React from 'react';
 import { Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Skeleton from 'react-native-skeleton-content-nonexpo';
-import { Category } from '../../../types';
 import { THEME } from '../../../constants';
+import { ListProps } from '../../../types/components';
+import { Category } from '../../../types';
 
 import styles from './styles';
-
-type SlideProps = {
-  data: Category[];
-  product?: boolean;
-  title: string;
-};
 
 const Item: React.FC<Category> = ({ _id, image, name }: Category) => {
   const { navigate } = useNavigation();
@@ -29,35 +24,35 @@ const Item: React.FC<Category> = ({ _id, image, name }: Category) => {
   );
 };
 
-const CategoryList: React.FC<SlideProps> = ({ data, title }: SlideProps) => (
+const CategoryList: React.FC<ListProps> = ({ data, title }) => (
   <View>
     <Text style={[styles.subtitle, styles.itemTitleContainer]}>{title}</Text>
     {data.length === 0 ? (
       <>
         <Skeleton
-          containerStyle={{ flex: 1, flexDirection: 'row', paddingLeft: 16, marginBottom: 12 }}
+          containerStyle={styles.imageSkeleton}
           isLoading={true}
           boneColor={THEME.background2}
           highlightColor={THEME.background1}
           layout={[
-            { key: '1', width: 150, height: 100, marginRight: 16, borderRadius: 8 },
-            { key: '2', width: 150, height: 100, marginRight: 16, borderRadius: 8 },
-            { key: '3', width: 150, height: 100, marginRight: 16, borderRadius: 8 },
-            { key: '4', width: 150, height: 100, marginRight: 16, borderRadius: 8 },
-            { key: '5', width: 150, height: 100, marginRight: 16, borderRadius: 8 },
+            { key: '1', ...styles.normalItemSkeleton },
+            { key: '2', ...styles.normalItemSkeleton },
+            { key: '3', ...styles.normalItemSkeleton },
+            { key: '4', ...styles.normalItemSkeleton },
+            { key: '5', ...styles.normalItemSkeleton },
           ]}
         />
         <Skeleton
-          containerStyle={{ flex: 1, flexDirection: 'row', paddingLeft: 16, marginBottom: 24 }}
+          containerStyle={styles.titleContainerSkeleton}
           isLoading={true}
           boneColor={THEME.background2}
           highlightColor={THEME.background1}
           layout={[
-            { key: '1', width: 150, height: 18, marginRight: 16, borderRadius: 8 },
-            { key: '2', width: 150, height: 18, marginRight: 16, borderRadius: 8 },
-            { key: '3', width: 150, height: 18, marginRight: 16, borderRadius: 8 },
-            { key: '4', width: 150, height: 18, marginRight: 16, borderRadius: 8 },
-            { key: '5', width: 150, height: 18, marginRight: 16, borderRadius: 8 },
+            { key: '1', ...styles.titleSkeleton },
+            { key: '2', ...styles.titleSkeleton },
+            { key: '3', ...styles.titleSkeleton },
+            { key: '4', ...styles.titleSkeleton },
+            { key: '5', ...styles.titleSkeleton },
           ]}
         />
       </>
@@ -68,8 +63,7 @@ const CategoryList: React.FC<SlideProps> = ({ data, title }: SlideProps) => (
         showsHorizontalScrollIndicator={false}
         horizontal={true}
         renderItem={({ item }) => <Item _id={item._id} image={item.image} name={item.name} />}
-        ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
-        contentContainerStyle={{ paddingHorizontal: 16 }}
+        contentContainerStyle={{ paddingLeft: 16 }}
       />
     )}
   </View>

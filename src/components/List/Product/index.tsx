@@ -10,7 +10,6 @@ import styles from './styles';
 
 type SlideProps = {
   data: Product[];
-  product?: boolean;
   title: string;
 };
 

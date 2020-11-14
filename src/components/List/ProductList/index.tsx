@@ -10,11 +10,7 @@ import { THEME } from '../../../constants';
 import styles from './styles';
 
 import imgChef from '../../../assets/images/chef.png';
-
-type SlideProps = {
-  data: Product[];
-  loading: boolean;
-};
+import { ListProps } from '../../../types/components';
 
 const Item: React.FC<Product> = ({
   _id,
@@ -53,7 +49,7 @@ const Item: React.FC<Product> = ({
   );
 };
 
-const ProductList: React.FC<SlideProps> = ({ data, loading }: SlideProps) => {
+const ProductList: React.FC<ListProps> = ({ data, loading = false }) => {
   return (
     <Skeleton
       containerStyle={{ flex: 1 }}
