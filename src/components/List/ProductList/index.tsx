@@ -52,7 +52,7 @@ const Item: React.FC<Product> = ({
 const ProductList: React.FC<ListProps> = ({ data, loading = false }) => {
   return (
     <Skeleton
-      containerStyle={{ flex: 1 }}
+      containerStyle={{ flex: 1, paddingLeft: 16 }}
       isLoading={loading}
       boneColor={ColorTheme.background2}
       layout={[

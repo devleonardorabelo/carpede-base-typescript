@@ -2,7 +2,7 @@ import { Dimensions } from 'react-native';
 
 export default {
   borderRadius: 8,
-  iconSize: 8,
+  iconSize: 28,
   product: {
     normal: {
       width: Dimensions.get('screen').width * 0.4,

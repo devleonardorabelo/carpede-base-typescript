@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Text, SafeAreaView } from 'react-native';
+import { Text, SafeAreaView, View } from 'react-native';
 import { useRoute, RouteProp } from '@react-navigation/native';
 import ShopContext from '../../contexts/shop';
 import { ParamList } from '../../types';
@@ -28,15 +28,17 @@ const List: React.FC = () => {
 
   return (
     <>
-      <SafeAreaView style={[styles.section, styles.container]}>
-        {name ? (
-          <Text style={styles.title}>{name}</Text>
-        ) : (
-          <>
-            <Text style={styles.subtitle}>Resultados para:</Text>
-            <Text style={styles.title}>{filter}</Text>
-          </>
-        )}
+      <SafeAreaView style={[styles.section]}>
+        <View style={styles.container}>
+          {name ? (
+            <Text style={styles.title}>{name}</Text>
+          ) : (
+            <>
+              <Text style={styles.subtitle}>Resultados para:</Text>
+              <Text style={styles.title}>{filter}</Text>
+            </>
+          )}
+        </View>
         <VerticalProductList data={products} loading={loading} />
       </SafeAreaView>
     </>

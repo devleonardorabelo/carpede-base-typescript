@@ -4,7 +4,7 @@ import { ColorTheme, TextTheme } from '../../../constants';
 export default StyleSheet.create({
   boldText: {
     ...TextTheme.boldText,
-    color: ColorTheme.color1,
+    color: ColorTheme.background1,
     alignSelf: 'center',
   },
   orderFooter: {

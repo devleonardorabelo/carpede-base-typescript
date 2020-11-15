@@ -1,4 +1,5 @@
-import { FontTheme, ColorTheme } from '../';
+import FontTheme from '../Font';
+import ColorTheme from '../Color';
 
 export default {
   title: {

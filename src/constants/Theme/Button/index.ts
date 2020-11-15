@@ -1,4 +1,5 @@
-import { ColorTheme, SizeTheme } from '../';
+import ColorTheme from '../Color';
+import SizeTheme from '../Size';
 
 export default {
   iconSize: SizeTheme.iconSize,
