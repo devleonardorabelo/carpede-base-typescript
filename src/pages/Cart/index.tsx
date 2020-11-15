@@ -13,7 +13,7 @@ import { OrderList, RectangularButton, SquareButton } from '../../components';
 
 import imgMap from '../../assets/images/map.png';
 
-const Checkout: React.FC = () => {
+const Cart: React.FC = () => {
   const { goBack } = useNavigation();
   const { products, resetOrder, totalProducts } = useContext(OrderContext);
   const { customer } = useContext(AuthContext);
@@ -69,4 +69,4 @@ const Checkout: React.FC = () => {
   );
 };
 
-export default Checkout;
+export default Cart;

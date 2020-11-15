@@ -5,7 +5,7 @@ import React, { useContext } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AuthContext from '../contexts/auth';
-import OrderContext, { OrderProvider } from '../contexts/order';
+import { OrderProvider } from '../contexts/order';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { ColorTheme } from '../constants';
@@ -14,7 +14,7 @@ import Home from '../pages/Home';
 import View from '../pages/View';
 import List from '../pages/List';
 import Profile from '../pages/Profile';
-import Checkout from '../pages/Checkout';
+import Cart from '../pages/Cart';
 
 const AppStack = createStackNavigator();
 
@@ -113,8 +113,8 @@ const AppRoutes: React.FC = () => {
           })}
         />
         <AppStack.Screen
-          name="Checkout"
-          component={Checkout}
+          name="Cart"
+          component={Cart}
           options={({ navigation }) => ({
             title: 'PEDIDO',
             headerLeft: () => (
