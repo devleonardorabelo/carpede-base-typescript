@@ -15,6 +15,10 @@ import View from '../pages/View';
 import List from '../pages/List';
 import Profile from '../pages/Profile';
 import Cart from '../pages/Cart';
+import SelectPayment from '../pages/Checkout/SelectPayment';
+import AddCard from '../pages/Checkout/AddCard';
+import CalculateChange from '../pages/Checkout/CalculateChange';
+import ConfirmPayment from '../pages/Checkout/ConfirmPayment';
 
 const AppStack = createStackNavigator();
 
@@ -136,6 +140,54 @@ const AppRoutes: React.FC = () => {
                 },
               };
             },
+          })}
+        />
+        <AppStack.Screen
+          name="SelectPayment"
+          component={SelectPayment}
+          options={({ navigation }) => ({
+            title: 'MEU PERFIL',
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <MI name="arrow-left" size={28} color={ColorTheme.background4} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <AppStack.Screen
+          name="AddCard"
+          component={AddCard}
+          options={({ navigation }) => ({
+            title: 'MEU PERFIL',
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <MI name="arrow-left" size={28} color={ColorTheme.background4} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <AppStack.Screen
+          name="CalculateChange"
+          component={CalculateChange}
+          options={({ navigation }) => ({
+            title: 'MEU PERFIL',
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <MI name="arrow-left" size={28} color={ColorTheme.background4} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <AppStack.Screen
+          name="ConfirmPayment"
+          component={ConfirmPayment}
+          options={({ navigation }) => ({
+            title: 'MEU PERFIL',
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <MI name="arrow-left" size={28} color={ColorTheme.background4} />
+              </TouchableOpacity>
+            ),
           })}
         />
       </AppStack.Navigator>

@@ -14,7 +14,7 @@ import { OrderList, RectangularButton, SquareButton } from '../../components';
 import imgMap from '../../assets/images/map.png';
 
 const Cart: React.FC = () => {
-  const { goBack } = useNavigation();
+  const { goBack, navigate } = useNavigation();
   const { products, resetOrder, totalProducts } = useContext(OrderContext);
   const { customer } = useContext(AuthContext);
   const { storeInfo } = useContext(ShopContext);
@@ -61,7 +61,7 @@ const Cart: React.FC = () => {
               }}
               icon="trash-can-outline"
             />
-            <RectangularButton action={() => {}} title="Ir para pagamento" />
+            <RectangularButton action={() => navigate('SelectPayment')} title="Ir para pagamento" />
           </View>
         </View>
       </Gesture>

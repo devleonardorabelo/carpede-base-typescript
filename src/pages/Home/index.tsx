@@ -42,7 +42,7 @@ const Home: React.FC = () => {
       {products.length > 0 && (
         <OrderFooter
           productLength={products.length}
-          action={() => navigate('Checkout')}
+          action={() => navigate('Cart')}
           totalOrder={totalProducts}
         />
       )}
