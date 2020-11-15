@@ -1,28 +1,28 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../../constants';
+import { ButtonTheme, SizeTheme, TextTheme } from '../../../constants';
 
 export default StyleSheet.create({
   rectangularButton: {
-    backgroundColor: THEME.button.color,
+    backgroundColor: ButtonTheme.background,
     justifyContent: 'center',
     alignItems: 'center',
     height: 48,
-    borderRadius: THEME.borderRadius,
+    borderRadius: SizeTheme.borderRadius,
     flexGrow: 1,
   },
   rectangularButtonDisabled: {
-    backgroundColor: THEME.button.disabledColor,
+    backgroundColor: ButtonTheme.backgroundDisabled,
     justifyContent: 'center',
     alignItems: 'center',
     height: 48,
-    borderRadius: THEME.borderRadius,
+    borderRadius: SizeTheme.borderRadius,
   },
   retangularButtonText: {
-    ...THEME.text,
-    color: THEME.button.contentColor,
+    ...TextTheme.text,
+    color: ButtonTheme.contentColor,
   },
   retangularButtonTextDisabled: {
-    ...THEME.text,
-    color: THEME.button.contentColorDisabled,
+    ...TextTheme.text,
+    color: ButtonTheme.contentColor,
   },
 });

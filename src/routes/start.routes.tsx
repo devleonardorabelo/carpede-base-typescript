@@ -5,7 +5,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
-import { THEME } from '../constants';
+import { ColorTheme } from '../constants';
 
 import FirstStep from '../pages/Start/FirstStep';
 import SecondStep from '../pages/Start/SecondStep';
@@ -26,13 +26,13 @@ const StartRoutes: React.FC = () => (
         padding: 8,
       },
       headerTitleStyle: {
-        color: THEME.color2,
+        color: ColorTheme.color2,
         fontFamily: 'Montserrat SemiBold',
         fontSize: 16,
       },
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <MI name="arrow-left" size={28} color={THEME.background3} />
+          <MI name="arrow-left" size={28} color={ColorTheme.background3} />
         </TouchableOpacity>
       ),
       headerTitleAlign: 'center',

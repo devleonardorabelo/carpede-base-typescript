@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../../constants';
+import { ColorTheme } from '../../../constants';
 
 export default StyleSheet.create({
   textInputBox: {
@@ -9,7 +9,7 @@ export default StyleSheet.create({
   labelInput: {
     fontFamily: 'Montserrat SemiBold',
     fontSize: 16,
-    color: THEME.color1,
+    color: ColorTheme.color1,
     paddingBottom: 8,
   },
   textInput: {
@@ -18,7 +18,7 @@ export default StyleSheet.create({
     borderRadius: 8,
     fontFamily: 'Montserrat Medium',
     fontSize: 16,
-    color: THEME.color1,
-    backgroundColor: THEME.background2,
+    color: ColorTheme.color1,
+    backgroundColor: ColorTheme.background2,
   },
 });

@@ -5,7 +5,7 @@ import MapView, { Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import FA from 'react-native-vector-icons/FontAwesome5';
 import { ParamList } from '../../../types';
-import { THEME } from '../../../constants';
+import { ColorTheme } from '../../../constants';
 
 import styles from '../styles';
 
@@ -61,7 +61,7 @@ const SecondStep: React.FC = () => {
                 <Text style={styles.text}>Você está aqui?</Text>
               </View>
             )}
-            <FA name="map-marker-alt" size={60} color={THEME.background3} />
+            <FA name="map-marker-alt" size={60} color={ColorTheme.background3} />
           </View>
         </Marker>
       </MapView>

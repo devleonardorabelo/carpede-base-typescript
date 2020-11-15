@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../../constants';
+import { SizeTheme, ColorTheme } from '../../../constants';
 
 export default StyleSheet.create({
   searchBox: {
     paddingHorizontal: 16,
-    borderRadius: 8,
-    backgroundColor: THEME.background2,
+    borderRadius: SizeTheme.borderRadius,
+    backgroundColor: ColorTheme.background2,
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 16,
@@ -13,7 +13,7 @@ export default StyleSheet.create({
   searchInput: {
     fontFamily: 'Montserrat Medium',
     fontSize: 16,
-    color: THEME.color1,
+    color: ColorTheme.fontColor1,
     flexGrow: 1,
   },
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Skeleton from 'react-native-skeleton-content-nonexpo';
-import { THEME } from '../../../constants';
+import { ColorTheme } from '../../../constants';
 import { ListProps } from '../../../types/components';
 import { Category } from '../../../types';
 
@@ -32,8 +32,8 @@ const CategoryList: React.FC<ListProps> = ({ data, title }) => (
         <Skeleton
           containerStyle={styles.imageSkeleton}
           isLoading={true}
-          boneColor={THEME.background2}
-          highlightColor={THEME.background1}
+          boneColor={ColorTheme.background2}
+          highlightColor={ColorTheme.background1}
           layout={[
             { key: '1', ...styles.normalItemSkeleton },
             { key: '2', ...styles.normalItemSkeleton },
@@ -45,8 +45,8 @@ const CategoryList: React.FC<ListProps> = ({ data, title }) => (
         <Skeleton
           containerStyle={styles.titleContainerSkeleton}
           isLoading={true}
-          boneColor={THEME.background2}
-          highlightColor={THEME.background1}
+          boneColor={ColorTheme.background2}
+          highlightColor={ColorTheme.background1}
           layout={[
             { key: '1', ...styles.titleSkeleton },
             { key: '2', ...styles.titleSkeleton },

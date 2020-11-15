@@ -1,20 +1,20 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../constants';
+import { ColorTheme, TextTheme } from '../../constants';
 
 export default StyleSheet.create({
   section: {
-    backgroundColor: THEME.background1,
+    backgroundColor: ColorTheme.background1,
     minHeight: '100%',
   },
   container: {
     padding: 16,
   },
   title: {
-    ...THEME.title,
+    ...TextTheme.title,
     marginBottom: 16,
   },
-  text: THEME.text,
-  boldText: THEME.boldText,
+  text: TextTheme.text,
+  boldText: TextTheme.boldText,
   profileNavigation: {
     flexDirection: 'row',
     marginHorizontal: 16,
@@ -23,7 +23,7 @@ export default StyleSheet.create({
     paddingBottom: 8,
     marginRight: 16,
     borderBottomWidth: 3,
-    borderBottomColor: THEME.background3,
+    borderBottomColor: ColorTheme.background3,
   },
   row: {
     flexDirection: 'row',
@@ -32,7 +32,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   callout: {
-    backgroundColor: THEME.background1,
+    backgroundColor: ColorTheme.background1,
     paddingHorizontal: 16,
     paddingVertical: 8,
     marginBottom: 8,
@@ -41,13 +41,13 @@ export default StyleSheet.create({
     borderColor: 'rgba(0,0,0,0.08)',
   },
   mapFooter: {
-    backgroundColor: THEME.background3,
+    backgroundColor: ColorTheme.background3,
     padding: 16,
     borderBottomRightRadius: 8,
     borderBottomLeftRadius: 8,
   },
   mapFooterText: {
-    color: THEME.background1,
+    color: ColorTheme.background1,
     textAlign: 'center',
   },
 });

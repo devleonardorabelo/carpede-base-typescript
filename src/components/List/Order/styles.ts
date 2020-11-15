@@ -1,27 +1,27 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../../constants';
+import { ColorTheme, SizeTheme, TextTheme } from '../../../constants';
 
 export default StyleSheet.create({
   boldText: {
-    ...THEME.boldText,
+    ...TextTheme.boldText,
   },
   lightText: {
-    ...THEME.lightText,
+    ...TextTheme.lightText,
   },
   text: {
-    ...THEME.text,
+    ...TextTheme.text,
   },
   price: {
-    color: THEME.color5,
+    color: ColorTheme.color5,
   },
   orderItem: {
     flexDirection: 'row',
     marginBottom: 16,
   },
   orderItemImage: {
-    width: THEME.product.order.width,
-    height: THEME.product.order.width,
-    borderRadius: THEME.borderRadius,
+    width: SizeTheme.product.order.width,
+    height: SizeTheme.product.order.width,
+    borderRadius: SizeTheme.borderRadius,
     marginRight: 16,
   },
   orderItemBody: {

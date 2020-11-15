@@ -9,7 +9,7 @@ import {
   StatusBar,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { THEME } from '../../../constants';
+import { ColorTheme } from '../../../constants';
 
 import styles from '../styles';
 
@@ -42,7 +42,7 @@ const FirstStep: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor={THEME.background1} />
+      <StatusBar barStyle="dark-content" backgroundColor={ColorTheme.background1} />
       <ScrollView style={styles.section}>
         <Text style={styles.title}>Sobre você</Text>
         <Text style={[styles.subtitle, { marginBottom: 32 }]}>

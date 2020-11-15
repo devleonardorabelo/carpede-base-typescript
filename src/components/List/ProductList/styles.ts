@@ -1,16 +1,16 @@
 import { Dimensions, StyleSheet } from 'react-native';
-import { THEME } from '../../../constants';
+import { ColorTheme, ImageTheme, TextTheme } from '../../../constants';
 
 export default StyleSheet.create({
-  boldText: THEME.boldText,
-  lightText: THEME.lightText,
-  subtitle: THEME.subtitle,
+  boldText: TextTheme.boldText,
+  lightText: TextTheme.lightText,
+  subtitle: TextTheme.subtitle,
   price: {
-    color: THEME.color5,
+    color: ColorTheme.color5,
   },
   onSale: {
     textDecorationLine: 'line-through',
-    color: THEME.color3,
+    color: ColorTheme.color3,
   },
   card: {
     flexDirection: 'row',
@@ -29,7 +29,7 @@ export default StyleSheet.create({
     borderRadius: 8,
   },
   illustration: {
-    ...THEME.illustration,
+    ...ImageTheme.illustration,
     resizeMode: 'center',
   },
 });

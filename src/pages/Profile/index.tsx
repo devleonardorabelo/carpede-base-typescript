@@ -3,7 +3,7 @@ import { View, ScrollView, Text, TouchableOpacity, Dimensions } from 'react-nati
 import MapView, { Marker } from 'react-native-maps';
 import AuthContext from '../../contexts/auth';
 import FA from 'react-native-vector-icons/FontAwesome5';
-import { THEME } from '../../constants';
+import { ColorTheme } from '../../constants';
 
 import styles from './styles';
 
@@ -59,7 +59,7 @@ const Profile: React.FC = () => {
           <TouchableOpacity
             style={[
               styles.buttonNavigation,
-              { borderBottomColor: tab === 1 ? THEME.background3 : THEME.background2 },
+              { borderBottomColor: tab === 1 ? ColorTheme.background3 : ColorTheme.background2 },
             ]}
             onPress={() => setTab(1)}>
             <Text style={styles.boldText}>Informações</Text>
@@ -67,7 +67,7 @@ const Profile: React.FC = () => {
           <TouchableOpacity
             style={[
               styles.buttonNavigation,
-              { borderBottomColor: tab === 2 ? THEME.background3 : THEME.background2 },
+              { borderBottomColor: tab === 2 ? ColorTheme.background3 : ColorTheme.background2 },
             ]}
             onPress={() => setTab(2)}>
             <Text style={styles.boldText}>Endereço</Text>
@@ -75,7 +75,7 @@ const Profile: React.FC = () => {
           <TouchableOpacity
             style={[
               styles.buttonNavigation,
-              { borderBottomColor: tab === 3 ? THEME.background3 : THEME.background2 },
+              { borderBottomColor: tab === 3 ? ColorTheme.background3 : ColorTheme.background2 },
             ]}
             onPress={() => setTab(3)}>
             <Text style={styles.boldText}>Localização</Text>
@@ -161,7 +161,7 @@ const Profile: React.FC = () => {
                       <Text style={styles.text}>Você está aqui?</Text>
                     </View>
                   )}
-                  <FA name="map-marker-alt" size={60} color={THEME.background3} />
+                  <FA name="map-marker-alt" size={60} color={ColorTheme.background3} />
                 </View>
               </Marker>
             </MapView>

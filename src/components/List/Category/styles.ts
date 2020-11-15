@@ -1,29 +1,29 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../../constants';
+import { TextTheme, SizeTheme } from '../../../constants';
 
 export default StyleSheet.create({
   itemTitleContainer: {
     paddingHorizontal: 16,
     marginBottom: 16,
   },
-  subtitle: THEME.subtitle,
-  boldText: THEME.boldText,
+  subtitle: TextTheme.subtitle,
+  boldText: TextTheme.boldText,
   normalItem: {
-    width: THEME.category.normal.width,
+    width: SizeTheme.category.normal.width,
     marginBottom: 24,
     marginRight: 16,
   },
   normalItemSkeleton: {
-    width: THEME.category.normal.width,
-    height: THEME.category.normal.height,
-    borderRadius: THEME.borderRadius,
+    width: SizeTheme.category.normal.width,
+    height: SizeTheme.category.normal.height,
+    borderRadius: SizeTheme.borderRadius,
     marginBottom: 8,
     marginRight: 16,
   },
   normalItemImage: {
-    width: THEME.category.normal.width,
-    height: THEME.category.normal.height,
-    borderRadius: THEME.borderRadius,
+    width: SizeTheme.category.normal.width,
+    height: SizeTheme.category.normal.height,
+    borderRadius: SizeTheme.borderRadius,
     marginBottom: 8,
   },
   imageSkeleton: {
@@ -38,9 +38,9 @@ export default StyleSheet.create({
     marginBottom: 24,
   },
   titleSkeleton: {
-    width: THEME.category.normal.width,
+    width: SizeTheme.category.normal.width,
     height: 18,
-    borderRadius: THEME.borderRadius,
+    borderRadius: SizeTheme.borderRadius,
     marginBottom: 8,
     marginRight: 16,
   },

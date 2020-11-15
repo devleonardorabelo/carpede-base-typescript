@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import ShopContext from '../../contexts/shop';
 import AuthContext from '../../contexts/auth';
 import OrderContext from '../../contexts/order';
-import { THEME } from '../../constants';
+import { ColorTheme } from '../../constants';
 import styles from './styles';
 
 import { SearchInput, CategoryList, ProductList, OrderFooter } from '../../components';
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <StatusBar backgroundColor={THEME.menuColor} barStyle="dark-content" />
+      <StatusBar backgroundColor={ColorTheme.menuColor} barStyle="dark-content" />
       <ScrollView style={[styles.section]}>
         <View style={styles.container}>
           <Text style={styles.title}>Olá, {customer?.name} </Text>

@@ -1,22 +1,22 @@
 import { Dimensions, StyleSheet } from 'react-native';
-import { THEME } from '../../constants';
+import { ColorTheme, TextTheme } from '../../constants';
 
 export default StyleSheet.create({
   section: {
-    backgroundColor: THEME.background1,
+    backgroundColor: ColorTheme.background1,
   },
   container: {
     padding: 16,
   },
-  title: THEME.title,
-  subtitle: THEME.subtitle,
-  text: THEME.text,
+  title: TextTheme.title,
+  subtitle: TextTheme.subtitle,
+  text: TextTheme.text,
   price: {
-    color: THEME.color5,
+    color: ColorTheme.color5,
   },
   onSale: {
     textDecorationLine: 'line-through',
-    color: THEME.color3,
+    color: ColorTheme.color3,
   },
   image: {
     width: '100%',
@@ -26,7 +26,7 @@ export default StyleSheet.create({
   bottomTabAdd: {
     width: '100%',
     padding: 16,
-    backgroundColor: THEME.background1,
+    backgroundColor: ColorTheme.background1,
     flexDirection: 'row',
   },
 });

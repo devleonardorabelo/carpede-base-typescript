@@ -8,7 +8,7 @@ import AuthContext from '../contexts/auth';
 import OrderContext, { OrderProvider } from '../contexts/order';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { THEME } from '../constants';
+import { ColorTheme } from '../constants';
 
 import Home from '../pages/Home';
 import View from '../pages/View';
@@ -41,7 +41,7 @@ const AppRoutes: React.FC = () => {
             padding: 8,
           },
           headerTitleStyle: {
-            color: THEME.color2,
+            color: ColorTheme.color2,
             fontFamily: 'Montserrat SemiBold',
             fontSize: 16,
           },
@@ -67,12 +67,12 @@ const AppRoutes: React.FC = () => {
           options={({ navigation }) => ({
             headerLeft: () => (
               <TouchableOpacity onPress={signOut}>
-                <MI name="logout" size={28} color={THEME.background4} />
+                <MI name="logout" size={28} color={ColorTheme.background4} />
               </TouchableOpacity>
             ),
             headerRight: () => (
               <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                <MI name="face-profile" size={28} color={THEME.background4} />
+                <MI name="face-profile" size={28} color={ColorTheme.background4} />
               </TouchableOpacity>
             ),
           })}
@@ -84,7 +84,7 @@ const AppRoutes: React.FC = () => {
             title: 'DETALHES',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MI name="arrow-left" size={28} color={THEME.background4} />
+                <MI name="arrow-left" size={28} color={ColorTheme.background4} />
               </TouchableOpacity>
             ),
           })}
@@ -96,7 +96,7 @@ const AppRoutes: React.FC = () => {
             title: 'CATEGORIA',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MI name="arrow-left" size={28} color={THEME.background4} />
+                <MI name="arrow-left" size={28} color={ColorTheme.background4} />
               </TouchableOpacity>
             ),
           })}
@@ -108,7 +108,7 @@ const AppRoutes: React.FC = () => {
             title: 'MEU PERFIL',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MI name="arrow-left" size={28} color={THEME.background4} />
+                <MI name="arrow-left" size={28} color={ColorTheme.background4} />
               </TouchableOpacity>
             ),
           })}
@@ -120,7 +120,7 @@ const AppRoutes: React.FC = () => {
             title: 'PEDIDO',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MI name="arrow-down" size={28} color={THEME.background4} />
+                <MI name="arrow-down" size={28} color={ColorTheme.background4} />
               </TouchableOpacity>
             ),
             cardStyleInterpolator: ({ current, layouts }) => {

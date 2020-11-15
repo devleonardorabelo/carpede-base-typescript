@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
 import Skeleton from 'react-native-skeleton-content-nonexpo';
 import { Product } from '../../../types';
-import { THEME } from '../../../constants';
+import { ColorTheme } from '../../../constants';
 
 import styles from './styles';
 
@@ -54,7 +54,7 @@ const ProductList: React.FC<ListProps> = ({ data, loading = false }) => {
     <Skeleton
       containerStyle={{ flex: 1 }}
       isLoading={loading}
-      boneColor={THEME.background2}
+      boneColor={ColorTheme.background2}
       layout={[
         { key: '1', width: '100%', height: 98, marginBottom: 22, borderRadius: 8 },
         { key: '2', width: '100%', height: 98, marginBottom: 22, borderRadius: 8 },

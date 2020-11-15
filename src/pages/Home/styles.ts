@@ -1,14 +1,14 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../constants';
+import { ColorTheme, TextTheme } from '../../constants';
 
 export default StyleSheet.create({
   section: {
-    backgroundColor: THEME.background1,
+    backgroundColor: ColorTheme.background1,
     minHeight: '100%',
   },
   container: {
     padding: 16,
   },
-  title: THEME.title,
-  subtitle: THEME.subtitle,
+  title: TextTheme.title,
+  subtitle: TextTheme.subtitle,
 });

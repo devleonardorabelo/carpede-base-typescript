@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../../constants';
+import { ButtonTheme, SizeTheme } from '../../../constants';
 
 export default StyleSheet.create({
   squareButton: {
@@ -7,12 +7,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     height: 48,
     width: 48,
-    borderRadius: THEME.borderRadius,
+    borderRadius: SizeTheme.borderRadius,
     borderWidth: 2,
-    borderColor: THEME.button.color,
+    borderColor: ButtonTheme.background,
   },
   squareButtonDisabled: {
-    backgroundColor: THEME.button.disabledColor,
-    borderColor: THEME.button.disabledColor,
+    backgroundColor: ButtonTheme.backgroundDisabled,
+    borderColor: ButtonTheme.backgroundDisabled,
   },
 });

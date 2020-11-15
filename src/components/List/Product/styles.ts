@@ -1,19 +1,19 @@
 import { Dimensions, StyleSheet } from 'react-native';
-import { THEME } from '../../../constants';
+import { ColorTheme, TextTheme } from '../../../constants';
 
 export default StyleSheet.create({
   itemTitleContainer: {
     paddingHorizontal: 16,
     marginBottom: 16,
   },
-  subtitle: THEME.subtitle,
-  boldText: THEME.boldText,
-  lightText: THEME.lightText,
+  subtitle: TextTheme.subtitle,
+  boldText: TextTheme.boldText,
+  lightText: TextTheme.lightText,
   price: {
-    color: THEME.color5,
+    color: ColorTheme.color5,
   },
   onSale: {
-    color: THEME.color3,
+    color: ColorTheme.color3,
     marginLeft: 8,
     fontFamily: 'Montserrat Light',
     textDecorationLine: 'line-through',

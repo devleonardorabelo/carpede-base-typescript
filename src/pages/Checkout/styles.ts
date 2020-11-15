@@ -1,23 +1,23 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../constants';
+import { ColorTheme, TextTheme } from '../../constants';
 
 export default StyleSheet.create({
-  title: THEME.title,
-  subtitle: THEME.subtitle,
+  title: TextTheme.title,
+  subtitle: TextTheme.subtitle,
   text: {
-    ...THEME.text,
+    ...TextTheme.text,
   },
   boldText: {
-    ...THEME.boldText,
+    ...TextTheme.boldText,
   },
   lightText: {
-    ...THEME.lightText,
+    ...TextTheme.lightText,
   },
   price: {
-    color: THEME.color5,
+    color: ColorTheme.color5,
   },
   section: {
-    backgroundColor: THEME.background1,
+    backgroundColor: ColorTheme.background1,
     flex: 1,
   },
   container: {
@@ -26,8 +26,8 @@ export default StyleSheet.create({
   orderBottomTab: {
     paddingTop: 16,
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: THEME.color4,
-    backgroundColor: THEME.menuColor,
+    borderTopColor: ColorTheme.color4,
+    backgroundColor: ColorTheme.menuColor,
   },
   orderBottomTabItem: {
     flexDirection: 'row',
@@ -40,7 +40,7 @@ export default StyleSheet.create({
     padding: 8,
     borderWidth: 1,
     borderRadius: 8,
-    borderColor: THEME.color3,
+    borderColor: ColorTheme.color3,
     alignItems: 'center',
     flexGrow: 1,
   },

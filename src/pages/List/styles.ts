@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../constants';
+import { ColorTheme, TextTheme } from '../../constants';
 
 export default StyleSheet.create({
   section: {
-    backgroundColor: THEME.background1,
+    backgroundColor: ColorTheme.background1,
     flex: 1,
   },
   container: {
@@ -11,11 +11,11 @@ export default StyleSheet.create({
     paddingBottom: 0,
   },
   subtitle: {
-    ...THEME.subtitle,
+    ...TextTheme.subtitle,
     marginBottom: -4,
   },
   title: {
-    ...THEME.title,
+    ...TextTheme.title,
     marginBottom: 16,
   },
 });

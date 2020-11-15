@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../constants';
+import { ColorTheme, TextTheme } from '../../constants';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: THEME.background1,
+    backgroundColor: ColorTheme.background1,
     minHeight: '100%',
   },
   section: {
@@ -12,9 +12,9 @@ export default StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
-  title: THEME.title,
-  subtitle: THEME.subtitle,
-  text: THEME.text,
+  title: TextTheme.title,
+  subtitle: TextTheme.subtitle,
+  text: TextTheme.text,
   bottomTab: {
     position: 'absolute',
     bottom: 0,
@@ -28,7 +28,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   callout: {
-    backgroundColor: THEME.background1,
+    backgroundColor: ColorTheme.background1,
     paddingHorizontal: 16,
     paddingVertical: 8,
     marginBottom: 8,

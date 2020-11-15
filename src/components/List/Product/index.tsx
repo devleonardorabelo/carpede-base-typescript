@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
 import Skeleton from 'react-native-skeleton-content-nonexpo';
 import { Product } from '../../../types';
-import { THEME } from '../../../constants';
+import { ColorTheme } from '../../../constants';
 
 import styles from './styles';
 
@@ -75,8 +75,8 @@ const ProductList: React.FC<SlideProps> = ({ data, title }: SlideProps) => (
         <Skeleton
           containerStyle={{ flex: 1, flexDirection: 'row', paddingLeft: 16, marginBottom: 12 }}
           isLoading={true}
-          boneColor={THEME.background2}
-          highlightColor={THEME.background1}
+          boneColor={ColorTheme.background2}
+          highlightColor={ColorTheme.background1}
           layout={[
             {
               key: '1',
@@ -118,8 +118,8 @@ const ProductList: React.FC<SlideProps> = ({ data, title }: SlideProps) => (
         <Skeleton
           containerStyle={{ flex: 1, flexDirection: 'row', paddingLeft: 16, marginBottom: 8 }}
           isLoading={true}
-          boneColor={THEME.background2}
-          highlightColor={THEME.background1}
+          boneColor={ColorTheme.background2}
+          highlightColor={ColorTheme.background1}
           layout={[
             {
               key: '1',
@@ -161,8 +161,8 @@ const ProductList: React.FC<SlideProps> = ({ data, title }: SlideProps) => (
         <Skeleton
           containerStyle={{ flex: 1, flexDirection: 'row', paddingLeft: 16, marginBottom: 8 }}
           isLoading={true}
-          boneColor={THEME.background2}
-          highlightColor={THEME.background1}
+          boneColor={ColorTheme.background2}
+          highlightColor={ColorTheme.background1}
           layout={[
             {
               key: '1',
@@ -204,8 +204,8 @@ const ProductList: React.FC<SlideProps> = ({ data, title }: SlideProps) => (
         <Skeleton
           containerStyle={{ flex: 1, flexDirection: 'row', paddingLeft: 16, marginBottom: 24 }}
           isLoading={true}
-          boneColor={THEME.background2}
-          highlightColor={THEME.background1}
+          boneColor={ColorTheme.background2}
+          highlightColor={ColorTheme.background1}
           layout={[
             {
               key: '1',

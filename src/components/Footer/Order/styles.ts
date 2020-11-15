@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { THEME } from '../../../constants';
+import { ColorTheme, TextTheme } from '../../../constants';
 
 export default StyleSheet.create({
   boldText: {
-    ...THEME.boldText,
-    color: THEME.background1,
+    ...TextTheme.boldText,
+    color: ColorTheme.color1,
     alignSelf: 'center',
   },
   orderFooter: {
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: THEME.background4,
+    backgroundColor: ColorTheme.background4,
   },
   orderFooterContainer: {
     flexDirection: 'row',
@@ -32,7 +32,7 @@ export default StyleSheet.create({
     fontFamily: 'Montserrat Bold',
     left: 16,
     top: 14,
-    color: THEME.background4,
+    color: ColorTheme.background4,
   },
   orderFooterCenter: {
     alignItems: 'center',
