@@ -8,7 +8,6 @@ import { ParamList } from '../../../types';
 import { ColorTheme } from '../../../constants';
 
 import styles from '../styles';
-
 import { CircularButton } from '../../../components';
 
 const SecondStep: React.FC = () => {

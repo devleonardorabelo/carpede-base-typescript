@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { TextInputMask as TextMask } from 'react-native-masked-text';
-import { MaskInputProps } from '../../../types/components';
+import { MaskInputProps } from '../../../types/component';
 
 import styles from './styles';
 

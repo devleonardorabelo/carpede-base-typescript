@@ -1,6 +1,5 @@
 import { KeyboardTypeOptions, StyleProp, ViewStyle } from 'react-native';
 import { TextInputMaskTypeProp } from 'react-native-masked-text';
-import { Category, Product } from '.';
 
 export type ButtonProps = {
   icon?: string;
@@ -37,7 +36,6 @@ export type OrderFooterProps = {
 };
 
 export type ListProps = {
-  data: Category[] & Product[];
   title?: string;
   loading?: boolean;
 };

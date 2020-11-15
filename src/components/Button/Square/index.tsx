@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ButtonTheme, ColorTheme } from '../../../constants';
-import { ButtonProps } from '../../../types/components';
+import { ButtonProps } from '../../../types/component';
 
 import styles from './styles';
 

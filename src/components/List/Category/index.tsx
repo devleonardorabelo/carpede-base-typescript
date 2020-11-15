@@ -3,7 +3,7 @@ import { Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Skeleton from 'react-native-skeleton-content-nonexpo';
 import { ColorTheme } from '../../../constants';
-import { ListProps } from '../../../types/components';
+import { ListProps } from '../../../types/component';
 import { Category } from '../../../types';
 
 import styles from './styles';
@@ -24,7 +24,7 @@ const Item: React.FC<Category> = ({ _id, image, name }: Category) => {
   );
 };
 
-const CategoryList: React.FC<ListProps> = ({ data, title }) => (
+const CategoryList: React.FC<ListProps & { data: Category[] }> = ({ data, title }) => (
   <View>
     <Text style={[styles.subtitle, styles.itemTitleContainer]}>{title}</Text>
     {data.length === 0 ? (

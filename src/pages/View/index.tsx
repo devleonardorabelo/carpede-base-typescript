@@ -7,7 +7,6 @@ import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 import OrderContext from '../../contexts/order';
 
 import styles from './styles';
-
 import { RectangularButton, SquareButton, TextInput } from '../../components';
 
 type ScreenRouteProp = RouteProp<ParamList, 'View'>;

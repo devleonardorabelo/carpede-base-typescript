@@ -12,7 +12,6 @@ import { useNavigation } from '@react-navigation/native';
 import { ColorTheme } from '../../../constants';
 
 import styles from '../styles';
-
 import { CircularButton, TextInput, TextInputMask } from '../../../components';
 
 const FirstStep: React.FC = () => {

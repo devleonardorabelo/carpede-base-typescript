@@ -7,7 +7,6 @@ import RequestBase from '../../../services/api';
 import { ParamList } from '../../../types';
 
 import styles from '../styles';
-
 import { CircularButton, TextInput } from '../../../components';
 
 const ThirdStep: React.FC = () => {

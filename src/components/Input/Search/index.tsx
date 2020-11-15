@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput, TouchableOpacity } from 'react-native';
 import FE from 'react-native-vector-icons/Feather';
 import { ButtonTheme, ColorTheme } from '../../../constants';
-import { TextInputProps } from '../../../types/components';
+import { TextInputProps } from '../../../types/component';
 
 import styles from './styles';
 

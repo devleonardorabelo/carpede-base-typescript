@@ -5,8 +5,8 @@ import ShopContext from '../../contexts/shop';
 import AuthContext from '../../contexts/auth';
 import OrderContext from '../../contexts/order';
 import { ColorTheme } from '../../constants';
-import styles from './styles';
 
+import styles from './styles';
 import { SearchInput, CategoryList, ProductList, OrderFooter } from '../../components';
 
 const Home: React.FC = () => {
@@ -35,8 +35,8 @@ const Home: React.FC = () => {
         </View>
         <View style={products.length > 0 && { marginBottom: 80 }}>
           <CategoryList data={categories} title="Categorias" />
-          <ProductList data={onSale} title="Promoções" product />
-          <ProductList data={bestSellers} title="Mais Vendidos" product />
+          <ProductList data={onSale} title="Promoções" />
+          <ProductList data={bestSellers} title="Mais Vendidos" />
         </View>
       </ScrollView>
       {products.length > 0 && (

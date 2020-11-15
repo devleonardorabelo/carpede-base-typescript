@@ -5,7 +5,6 @@ import ShopContext from '../../contexts/shop';
 import { ParamList } from '../../types';
 
 import styles from './styles';
-
 import { VerticalProductList } from '../../components';
 
 type ScreenRouteProp = RouteProp<ParamList, 'List'>;

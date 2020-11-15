@@ -20,7 +20,6 @@ const AppStack = createStackNavigator();
 
 const AppRoutes: React.FC = () => {
   const { signOut } = useContext(AuthContext);
-  const { resetOrder } = useContext(OrderContext);
 
   return (
     <OrderProvider>

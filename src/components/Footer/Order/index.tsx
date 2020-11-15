@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { TextMask } from 'react-native-masked-text';
 import Gesture from 'react-native-swipe-gestures';
 import FE from 'react-native-vector-icons/Feather';
-import { OrderFooterProps } from '../../../types/components';
+import { OrderFooterProps } from '../../../types/component';
 
 import styles from './styles';
 

@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { View, ScrollView, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
 import AuthContext from '../../contexts/auth';
 import FA from 'react-native-vector-icons/FontAwesome5';
 import { ColorTheme } from '../../constants';
 
 import styles from './styles';
-
 import { CircularButton, TextInput, TextInputMask } from '../../components';
-import { useNavigation } from '@react-navigation/native';
 
 const Profile: React.FC = () => {
   const { customer, signUp } = useContext(AuthContext);
