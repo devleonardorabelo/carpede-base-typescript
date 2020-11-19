@@ -3,8 +3,11 @@ import { TextInputMaskTypeProp } from 'react-native-masked-text';
 
 export type ButtonProps = {
   icon?: string;
+  iconColor?: string;
+  image?: any;
   style?: StyleProp<ViewStyle>;
   title?: JSX.Element | string;
+  subtitle?: string;
   action: () => void;
   disabled?: boolean;
 };

@@ -2,32 +2,31 @@ import { StyleSheet } from 'react-native';
 import { ColorTheme, TextTheme } from '../../../constants';
 
 export default StyleSheet.create({
-  lightText: {
-    ...TextTheme.lightText,
-  },
   boldText: {
     ...TextTheme.boldText,
   },
-  text: {
-    ...TextTheme.text,
+  lightText: {
+    ...TextTheme.lightText,
+    marginTop: -4,
   },
-  price: {
-    ...TextTheme.subtitle,
-    color: ColorTheme.color5,
-  },
-  section: {
-    backgroundColor: ColorTheme.background1,
-    flex: 1,
-  },
-  container: {
-    padding: 16,
-  },
-  totalContainer: {
+  itemContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    padding: 16,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    paddingBottom: 16,
     borderBottomColor: ColorTheme.color4,
+    backgroundColor: ColorTheme.menuColor,
+  },
+  itemContentRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexGrow: 1,
+    justifyContent: 'space-between',
+  },
+  itemImage: {
+    width: 28,
+    height: 28,
+    marginRight: 16,
   },
 });

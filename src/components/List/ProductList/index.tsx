@@ -36,13 +36,21 @@ const Item: React.FC<Product> = ({
           <View style={{ flexDirection: 'row' }}>
             <TextMask
               style={[styles.boldText, styles.price, { marginRight: 8 }]}
-              value={String(onSaleValue)}
+              value={`${String(onSaleValue)}00`}
               type="money"
             />
-            <TextMask style={[styles.boldText, styles.onSale]} value={String(price)} type="money" />
+            <TextMask
+              style={[styles.boldText, styles.onSale]}
+              value={`${String(price)}00`}
+              type="money"
+            />
           </View>
         ) : (
-          <TextMask style={[styles.boldText, styles.price]} value={String(price)} type="money" />
+          <TextMask
+            style={[styles.boldText, styles.price]}
+            value={`${String(price)}00`}
+            type="money"
+          />
         )}
       </View>
     </TouchableOpacity>

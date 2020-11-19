@@ -146,7 +146,7 @@ const AppRoutes: React.FC = () => {
           name="SelectPayment"
           component={SelectPayment}
           options={({ navigation }) => ({
-            title: 'MEU PERFIL',
+            title: 'SELECIONAR PAGAMENTO',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
                 <MI name="arrow-left" size={28} color={ColorTheme.background4} />
@@ -158,7 +158,7 @@ const AppRoutes: React.FC = () => {
           name="AddCard"
           component={AddCard}
           options={({ navigation }) => ({
-            title: 'MEU PERFIL',
+            title: 'ADICIONAR CARTÃO',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
                 <MI name="arrow-left" size={28} color={ColorTheme.background4} />
@@ -170,7 +170,7 @@ const AppRoutes: React.FC = () => {
           name="CalculateChange"
           component={CalculateChange}
           options={({ navigation }) => ({
-            title: 'MEU PERFIL',
+            title: 'DINHEIRO',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
                 <MI name="arrow-left" size={28} color={ColorTheme.background4} />
@@ -182,7 +182,7 @@ const AppRoutes: React.FC = () => {
           name="ConfirmPayment"
           component={ConfirmPayment}
           options={({ navigation }) => ({
-            title: 'MEU PERFIL',
+            title: 'CONFIRMAR',
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
                 <MI name="arrow-left" size={28} color={ColorTheme.background4} />
