@@ -3,15 +3,11 @@ import { Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
 import Skeleton from 'react-native-skeleton-content-nonexpo';
-import { Product } from '../../../types';
+import { ListProps, Product } from '../../../types';
 import { ColorTheme } from '../../../constants';
+import PriceToString from '../../../utils/priceToStringFormat';
 
 import styles from './styles';
-
-type SlideProps = {
-  data: Product[];
-  title: string;
-};
 
 const Item: React.FC<Product> = ({
   _id,
@@ -45,19 +41,19 @@ const Item: React.FC<Product> = ({
             <>
               <TextMask
                 style={[styles.boldText, styles.price]}
-                value={String(onSaleValue)}
+                value={PriceToString(onSaleValue)}
                 type={'money'}
               />
               <TextMask
                 style={[styles.boldText, styles.onSale]}
-                value={String(price)}
+                value={PriceToString(price)}
                 type={'money'}
               />
             </>
           ) : (
             <TextMask
               style={[styles.boldText, styles.price]}
-              value={String(price)}
+              value={PriceToString(price)}
               type={'money'}
             />
           )}
@@ -67,7 +63,7 @@ const Item: React.FC<Product> = ({
   );
 };
 
-const ProductList: React.FC<SlideProps> = ({ data, title }: SlideProps) => (
+const ProductList: React.FC<ListProps & { data: Product[] }> = ({ data, title }) => (
   <View>
     <Text style={[styles.subtitle, styles.itemTitleContainer]}>{title}</Text>
     {data.length === 0 ? (

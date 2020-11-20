@@ -3,6 +3,7 @@ import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
 import { OrderProduct } from '../../../types';
+import PriceToString from '../../../utils/priceToStringFormat';
 
 import styles from './styles';
 
@@ -31,7 +32,7 @@ const Item: React.FC<OrderProduct> = ({
           <Text style={styles.boldText}>{quantity}x</Text>
           <TextMask
             style={[styles.boldText, styles.price, { marginLeft: 8 }]}
-            value={onSaleValue ? String(onSaleValue) : String(price)}
+            value={onSaleValue ? PriceToString(onSaleValue) : PriceToString(price)}
             type={'money'}
           />
         </View>

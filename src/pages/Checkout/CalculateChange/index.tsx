@@ -2,9 +2,9 @@
 import React from 'react';
 import { SafeAreaView, View, Text } from 'react-native';
 import { TextMask } from 'react-native-masked-text';
+import PriceToString from '../../../utils/priceToStringFormat';
 
 import styles from './styles';
-
 import { ItemButton, RectangularButton, TextInputMask } from '../../../components';
 
 import imgCash from '../../../assets/images/cash.png';
@@ -15,7 +15,7 @@ const CalculateChange: React.FC = () => {
       <View style={styles.container}>
         <View style={styles.totalContainer}>
           <Text style={styles.text}>Total: </Text>
-          <TextMask style={styles.price} type="money" value={`${String(5)}00`} />
+          <TextMask style={styles.price} type="money" value={PriceToString(5)} />
         </View>
       </View>
       <View style={[styles.container, { flex: 1 }]}>

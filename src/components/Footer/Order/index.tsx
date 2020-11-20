@@ -4,6 +4,7 @@ import { TextMask } from 'react-native-masked-text';
 import Gesture from 'react-native-swipe-gestures';
 import FE from 'react-native-vector-icons/Feather';
 import { OrderFooterProps } from '../../../types/component';
+import PriceToString from '../../../utils/priceToStringFormat';
 
 import styles from './styles';
 
@@ -18,7 +19,7 @@ const OrderFooter: React.FC<OrderFooterProps> = ({ productLength, action, totalO
         <Text style={[styles.boldText, styles.orderFooterCenter]}>Ver pedido</Text>
         <TextMask
           style={[styles.boldText, styles.orderFooterRight]}
-          value={String(totalOrder)}
+          value={PriceToString(totalOrder)}
           type={'money'}
         />
       </View>

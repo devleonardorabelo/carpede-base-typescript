@@ -4,13 +4,13 @@ import { Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { TextMask } from 'react-native-masked-text';
 import Skeleton from 'react-native-skeleton-content-nonexpo';
-import { Product } from '../../../types';
+import { Product, ListProps } from '../../../types';
 import { ColorTheme } from '../../../constants';
+import PriceToString from '../../../utils/priceToStringFormat';
 
 import styles from './styles';
 
 import imgChef from '../../../assets/images/chef.png';
-import { ListProps } from '../../../types/component';
 
 const Item: React.FC<Product> = ({
   _id,
@@ -36,19 +36,19 @@ const Item: React.FC<Product> = ({
           <View style={{ flexDirection: 'row' }}>
             <TextMask
               style={[styles.boldText, styles.price, { marginRight: 8 }]}
-              value={`${String(onSaleValue)}00`}
+              value={PriceToString(onSaleValue)}
               type="money"
             />
             <TextMask
               style={[styles.boldText, styles.onSale]}
-              value={`${String(price)}00`}
+              value={PriceToString(price)}
               type="money"
             />
           </View>
         ) : (
           <TextMask
             style={[styles.boldText, styles.price]}
-            value={`${String(price)}00`}
+            value={PriceToString(price)}
             type="money"
           />
         )}

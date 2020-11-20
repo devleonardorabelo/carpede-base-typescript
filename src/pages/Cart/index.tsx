@@ -7,6 +7,7 @@ import AuthContext from '../../contexts/auth';
 import ShopContext from '../../contexts/shop';
 import Gesture from 'react-native-swipe-gestures';
 import { TextMask } from 'react-native-masked-text';
+import PriceToString from '../../utils/priceToStringFormat';
 
 import styles from './styles';
 import { OrderList, RectangularButton, SquareButton } from '../../components';
@@ -40,7 +41,7 @@ const Cart: React.FC = () => {
             <Text style={styles.text}>Total dos itens: </Text>
             <TextMask
               style={[styles.subtitle, styles.price]}
-              value={String(totalProducts)}
+              value={PriceToString(totalProducts)}
               type={'money'}
             />
           </View>
@@ -48,7 +49,7 @@ const Cart: React.FC = () => {
             <Text style={styles.text}>Taxa de entrega: </Text>
             <TextMask
               style={[styles.boldText]}
-              value={String(storeInfo?.fees.delivery)}
+              value={PriceToString(storeInfo?.fees.delivery)}
               type={'money'}
             />
           </View>

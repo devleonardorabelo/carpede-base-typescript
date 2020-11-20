@@ -5,6 +5,7 @@ import { TextMask } from 'react-native-masked-text';
 import { OrderProduct, ParamList } from '../../types';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 import OrderContext from '../../contexts/order';
+import PriceToString from '../../utils/priceToStringFormat';
 
 import styles from './styles';
 import { RectangularButton, SquareButton, TextInput } from '../../components';
@@ -31,13 +32,13 @@ const ViewProduct: React.FC = () => {
           {onSale ? (
             <Text style={styles.subtitle}>
               {'De '}
-              <TextMask style={styles.onSale} value={String(price)} type="money" />
+              <TextMask style={styles.onSale} value={PriceToString(price)} type="money" />
               {' por '}
-              <TextMask style={styles.price} value={String(onSaleValue)} type="money" />
+              <TextMask style={styles.price} value={PriceToString(onSaleValue)} type="money" />
             </Text>
           ) : (
             <Text style={styles.subtitle}>
-              <TextMask style={styles.price} value={String(price)} type="money" />
+              <TextMask style={styles.price} value={PriceToString(price)} type="money" />
             </Text>
           )}
         </View>
@@ -69,12 +70,12 @@ const ViewProduct: React.FC = () => {
             onSale ? (
               <>
                 <Text>{quantity} por </Text>
-                <TextMask value={String(onSaleValue * quantity)} type="money" />
+                <TextMask value={PriceToString(onSaleValue * quantity)} type="money" />
               </>
             ) : (
               <>
                 <Text>{quantity} por </Text>
-                <TextMask value={String(price * quantity)} type="money" />
+                <TextMask value={PriceToString(price * quantity)} type="money" />
               </>
             )
           }
