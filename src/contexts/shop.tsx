@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { createContext, useEffect, useState } from 'react';
 import RequestBase from '../services/api';
 import { TShopContext, Product, Category, ProductSearch, StoreInfo } from '../types';
@@ -9,6 +10,7 @@ const ShopContext = createContext<TShopContext>({
   bestSellers: [],
   loadProducts: () => {},
   storeInfo: null,
+  resetProductList: () => {},
 });
 
 export const ShopProvider: React.FC = ({ children }) => {
@@ -19,35 +21,38 @@ export const ShopProvider: React.FC = ({ children }) => {
   const [storeInfo, setStoreInfo] = useState<StoreInfo | null>(null);
 
   const loadCategories = async () => {
-    const data = await RequestBase({ route: 'categories' });
-    setCategories(data.body);
+    const { body } = await RequestBase({ route: 'categories' });
+    if (body) setCategories([...categories, ...body]);
   };
 
-  const loadProducts = async ({ category, page, filter }: ProductSearch) => {
-    const data = await RequestBase({
+  const loadProducts = async ({ category, filter }: ProductSearch) => {
+    const { body } = await RequestBase({
       route: 'products',
       params: {
-        category: category._id,
-        page,
+        category,
         filter,
       },
     });
-    if (data) setProducts(data.body);
+    if (body) setProducts(body);
   };
 
   const loadOnSale = async () => {
-    const data = await RequestBase({ route: 'onsale' });
-    if (data) setOnSale(data.body);
+    const { body } = await RequestBase({ route: 'onsale' });
+    if (body) setOnSale([...body]);
   };
 
   const loadBestSellers = async () => {
-    const data = await RequestBase({ route: 'onsale' });
-    if (data) setBestSellers(data.body);
+    const { body } = await RequestBase({ route: 'onsale' });
+    if (body) setBestSellers(body);
   };
 
   const loadStoreInfo = async () => {
-    const data = await RequestBase({ route: '' });
-    if (data) setStoreInfo(data.body);
+    const { body } = await RequestBase({ route: '' });
+    if (body) setStoreInfo(body);
+  };
+
+  const resetProductList = () => {
+    setProducts([]);
   };
 
   useEffect(() => {
@@ -59,7 +64,15 @@ export const ShopProvider: React.FC = ({ children }) => {
 
   return (
     <ShopContext.Provider
-      value={{ products, categories, onSale, bestSellers, loadProducts, storeInfo }}>
+      value={{
+        products,
+        categories,
+        onSale,
+        bestSellers,
+        loadProducts,
+        storeInfo,
+        resetProductList,
+      }}>
       {children}
     </ShopContext.Provider>
   );

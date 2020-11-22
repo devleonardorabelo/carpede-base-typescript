@@ -10,14 +10,14 @@ import { VerticalProductList } from '../../components';
 type ScreenRouteProp = RouteProp<ParamList, 'List'>;
 
 const List: React.FC = () => {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const { loadProducts, products } = useContext(ShopContext);
   const {
     params: { _id, name, filter },
   } = useRoute<ScreenRouteProp>();
 
   const loadProductList = async () => {
-    await loadProducts({ category: { _id, name }, page: 1, filter });
+    await loadProducts({ category: _id, filter });
     setLoading(false);
   };
 
@@ -38,7 +38,11 @@ const List: React.FC = () => {
             </>
           )}
         </View>
-        <VerticalProductList data={products} loading={loading} />
+        <VerticalProductList
+          data={products}
+          onEndReached={() => loadProductList()}
+          loading={loading}
+        />
       </SafeAreaView>
     </>
   );

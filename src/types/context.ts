@@ -44,6 +44,7 @@ export type TShopContext = {
   bestSellers: Product[];
   loadProducts: ({ category, page, filter }: ProductSearch | any) => Promise<void> | any;
   storeInfo: StoreInfo | null;
+  resetProductList: () => void;
 };
 
 export type TOrderContext = {

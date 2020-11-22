@@ -18,20 +18,17 @@ export enum HttpStatusCode {
   serverError = 500,
 }
 
-export type HttpResponse<T = any> = {
+export interface HttpResponse<T = any> {
   statusCode: HttpStatusCode;
   body?: T;
-};
+}
 
 export type HttpClient<R = any> = {
   request: (data: HttpRequest) => Promise<HttpResponse<R>>;
 };
 
 export type ProductSearch = {
-  category: {
-    _id: string;
-    name: string;
-  };
+  category: string;
   page?: number;
   filter?: string;
 };

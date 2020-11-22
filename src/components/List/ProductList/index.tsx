@@ -57,7 +57,7 @@ const Item: React.FC<Product> = ({
   );
 };
 
-const ProductList: React.FC<ListProps & { data: Product[] }> = ({ data, loading = false }) => {
+const ProductList: React.FC<ListProps & { data: Product[] }> = ({ data, loading }) => {
   return (
     <Skeleton
       containerStyle={{ flex: 1, paddingLeft: 16 }}
@@ -70,7 +70,7 @@ const ProductList: React.FC<ListProps & { data: Product[] }> = ({ data, loading 
         { key: '4', width: '100%', height: 98, marginBottom: 22, borderRadius: 8 },
         { key: '5', width: '100%', height: 98, marginBottom: 22, borderRadius: 8 },
       ]}>
-      {data.length !== 0 ? (
+      {!loading && data.length !== 0 ? (
         <FlatList
           data={data}
           keyExtractor={(item) => String(item._id)}

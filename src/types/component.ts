@@ -40,5 +40,6 @@ export type OrderFooterProps = {
 
 export type ListProps = {
   title?: string;
-  loading?: boolean;
+  loading: boolean;
+  onEndReached?: ((info: { distanceFromEnd: number }) => void) | null;
 };
